@@ -29,7 +29,9 @@ export default function App() {
 
           if (listCategorys && listCategorys.items) {
             return listCategorys.items?.map(category => {
-              return category ? <CategoryCard name={category.name} /> : null;
+              return category ? (
+                <CategoryCard key={category.id} name={category.name} />
+              ) : null;
             });
           }
         }}
