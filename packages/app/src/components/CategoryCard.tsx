@@ -1,12 +1,19 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableNativeFeedback } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#bbb"
+    backgroundColor: "#AEC943",
+    height: 160,
+    borderRadius: 10,
+    marginBottom: 15,
+    padding: 25
   },
   text: {
-    fontSize: 60
+    fontSize: 40,
+    fontWeight: "100",
+    color: "#fff",
+    marginTop: "auto"
   }
 });
 
@@ -15,11 +22,11 @@ const CategoryCard: FunctionComponent<{
   onPress: () => void;
 }> = ({ name, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text} onPress={onPress}>
-        {name}
-      </Text>
-    </View>
+    <TouchableNativeFeedback>
+      <View style={styles.container} onTouchEnd={onPress}>
+        <Text style={styles.text}>{name}</Text>
+      </View>
+    </TouchableNativeFeedback>
   );
 };
 
