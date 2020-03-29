@@ -1,0 +1,12 @@
+type Category @model {
+  id: ID!
+  name: String!
+  messages: [Message] @connection(name: "CategoryMessages")
+}
+
+type Message @model {
+  id: ID!
+  message: String!
+  approved: Boolean!
+  category: Category! @connection(name: "CategoryMessages")
+}
