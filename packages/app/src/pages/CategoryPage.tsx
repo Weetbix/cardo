@@ -2,31 +2,25 @@ import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Connect } from "aws-amplify-react-native";
 import API, { graphqlOperation } from "@aws-amplify/api";
-import { StackNavigationProp } from "@react-navigation/stack";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { ListCategorysQuery } from "@cardo/backend/src/API";
 import CategoryCard from "../components/CategoryCard";
+// import { Route } from "react-na"
+import { RouteProp } from "@react-navigation/native";
 
 import amplifyConfig from "../../aws-exports.js";
 API.configure(amplifyConfig);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
-
 type Props = {
-  navigation: StackNavigationProp<NavStackParamList, "home">;
+  route: RouteProp<NavStackParamList, "category">;
 };
-const StartPage: FunctionComponent<Props> = ({ navigation }) => {
+
+const CategoryPage: FunctionComponent<Props> = ({ route }) => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Connect query={graphqlOperation(queries.listCategorys)}>
+      <Text>category page!</Text>
+      <Text>{route.params.id}</Text>
+      {/* <Connect query={graphqlOperation(queries.listCategorys)}>
         {({
           data: { listCategorys },
           loading,
@@ -43,20 +37,23 @@ const StartPage: FunctionComponent<Props> = ({ navigation }) => {
           if (listCategorys && listCategorys.items) {
             return listCategorys.items?.map(category => {
               return category ? (
-                <CategoryCard
-                  key={category.id}
-                  name={category.name}
-                  onPress={() =>
-                    navigation.navigate("category", { id: category.id })
-                  }
-                />
+                <CategoryCard key={category.id} name={category.name} />
               ) : null;
             });
           }
         }}
-      </Connect>
+      </Connect> */}
     </View>
   );
 };
 
-export default StartPage;
+export default CategoryPage;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
