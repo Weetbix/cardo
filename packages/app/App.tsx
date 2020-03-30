@@ -1,4 +1,5 @@
 import React from "react";
+import API from "@aws-amplify/api";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import {
@@ -9,6 +10,9 @@ import StartPage from "./src/pages/StartPage";
 import CategoryPage from "./src/pages/CategoryPage";
 
 const Stack = createStackNavigator<NavStackParamList>();
+
+import amplifyConfig from "./aws-exports.js";
+API.configure(amplifyConfig);
 
 const headerStyles: StackNavigationOptions = {
   headerStyle: {

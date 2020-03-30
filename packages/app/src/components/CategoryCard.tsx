@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 40,
-    fontWeight: "100",
+    fontFamily: "sans-serif-light",
     color: "#fff",
     marginTop: "auto"
   }
