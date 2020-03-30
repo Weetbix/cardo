@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { RouteProp } from "@react-navigation/native";
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { isFilled } from "ts-is-present";
@@ -12,7 +12,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    padding: 44
+  },
+  message: {
+    fontSize: 25,
+    fontFamily: "sans-serif-light",
+    textAlign: "center",
+    marginTop: "auto",
+    marginBottom: "auto"
+  },
+  image: {
+    marginTop: 60
   }
 });
 
@@ -55,7 +65,8 @@ const CategoryPage: FunctionComponent<Props> = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{message}</Text>
+      <Image style={styles.image} source={category.image} />
+      <Text style={styles.message}>{message}</Text>
     </View>
   );
 };
