@@ -1,9 +1,15 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View, TouchableNativeFeedback } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableNativeFeedback,
+  Image
+} from "react-native";
+import { Category } from "../data/categories";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#AEC943",
     height: 160,
     borderRadius: 10,
     marginBottom: 15,
@@ -14,17 +20,26 @@ const styles = StyleSheet.create({
     fontFamily: "sans-serif-light",
     color: "#fff",
     marginTop: "auto"
+  },
+  image: {
+    position: "absolute",
+    right: 18,
+    bottom: 0
   }
 });
 
 const CategoryCard: FunctionComponent<{
-  name: string;
+  category: Category;
   onPress: () => void;
-}> = ({ name, onPress }) => {
+}> = ({ category, onPress }) => {
   return (
     <TouchableNativeFeedback>
-      <View style={styles.container} onTouchEnd={onPress}>
-        <Text style={styles.text}>{name}</Text>
+      <View
+        style={[styles.container, { backgroundColor: category.color }]}
+        onTouchEnd={onPress}
+      >
+        <Image style={styles.image} source={category.image} />
+        <Text style={styles.text}>{category.name}</Text>
       </View>
     </TouchableNativeFeedback>
   );
