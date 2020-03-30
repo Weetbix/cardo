@@ -12,17 +12,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    padding: 44
+    padding: 20,
+    paddingLeft: 45,
+    paddingRight: 45
   },
   message: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
     textAlign: "center",
-    marginTop: "auto",
-    marginBottom: "auto"
+    marginTop: 50
   },
   image: {
-    marginTop: 60
+    marginTop: 60,
+    borderRadius: 100
+  },
+  suggestion: {
+    color: "#7DC6ED",
+    marginTop: "auto"
   }
 });
 
@@ -67,6 +73,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={category.image} />
       <Text style={styles.message}>{message}</Text>
+      <Text style={styles.suggestion}>Have a suggestion?</Text>
     </View>
   );
 };
