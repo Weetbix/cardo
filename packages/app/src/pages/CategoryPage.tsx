@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Connect } from "aws-amplify-react-native";
-import { graphqlOperation } from "@aws-amplify/api";
+import { RouteProp } from "@react-navigation/native";
+import API, { graphqlOperation } from "@aws-amplify/api";
+import { isFilled } from "ts-is-present";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
-import { RouteProp } from "@react-navigation/native";
 import { NavStackParamList } from "../types";
 
 const styles = StyleSheet.create({
@@ -25,37 +25,37 @@ const CategoryPage: FunctionComponent<Props> = ({ route }) => {
     params: { category }
   } = route;
 
+  const [messages, setMessages] = useState<string[]>([]);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Fetch the message data and filter down
+    async function fetchMessages() {
+      const messageData: {
+        data: GetCategoryQuery;
+      } = await API.graphql(
+        graphqlOperation(queries.getCategory, { id: category.id })
+      );
+
+      if (messageData.data.getCategory?.messages?.items?.length) {
+        const fetchedMessages = messageData.data.getCategory.messages.items
+          .filter(isFilled)
+          .map(item => item.message);
+
+        setMessages(fetchedMessages);
+      }
+    }
+
+    fetchMessages();
+  }, []);
+
+  useEffect(() => {
+    setMessage(messages[Math.floor(Math.random() * messages.length)]);
+  }, [messages]);
+
   return (
     <View style={styles.container}>
-      <Text>category page!</Text>
-      <Text>{category.id}</Text>
-      <Connect
-        query={graphqlOperation(queries.getCategory, { id: category.id })}
-      >
-        {({
-          data: { getCategory },
-          loading,
-          errors
-        }: {
-          data: GetCategoryQuery;
-          loading: boolean;
-          errors: Array<Error>;
-        }) => {
-          if (errors && errors.length)
-            return <Text>d {JSON.stringify(errors)}</Text>;
-          if (loading) return <Text>Loading...</Text>;
-
-          if (
-            getCategory &&
-            getCategory.messages &&
-            getCategory.messages.items
-          ) {
-            return getCategory.messages.items.map(message => (
-              <Text key={message?.id}>{message?.message}</Text>
-            ));
-          }
-        }}
-      </Connect>
+      <Text>{message}</Text>
     </View>
   );
 };

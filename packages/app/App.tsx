@@ -42,7 +42,7 @@ export default function App() {
           name="category"
           component={CategoryPage}
           options={({ route }) => ({
-            title: route.params.title
+            title: route.params.category.name
           })}
         />
       </Stack.Navigator>
