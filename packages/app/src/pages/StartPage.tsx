@@ -51,7 +51,10 @@ const StartPage: FunctionComponent<Props> = ({ navigation }) => {
                   key={category.id}
                   name={category.name}
                   onPress={() =>
-                    navigation.navigate("category", { id: category.id })
+                    navigation.navigate("category", {
+                      id: category.id,
+                      title: category.name
+                    })
                   }
                 />
               ) : null;

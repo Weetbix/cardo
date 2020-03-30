@@ -9,9 +9,19 @@ const Stack = createStackNavigator<NavStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none">
-        <Stack.Screen name="home" component={StartPage} />
-        <Stack.Screen name="category" component={CategoryPage} />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="home"
+          component={StartPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="category"
+          component={CategoryPage}
+          options={({ route }) => ({
+            title: route.params.title
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
