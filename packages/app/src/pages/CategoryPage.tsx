@@ -5,6 +5,7 @@ import { graphqlOperation } from "@aws-amplify/api";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { RouteProp } from "@react-navigation/native";
+import { NavStackParamList } from "../types";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,12 +21,16 @@ type Props = {
 };
 
 const CategoryPage: FunctionComponent<Props> = ({ route }) => {
+  const {
+    params: { category }
+  } = route;
+
   return (
     <View style={styles.container}>
       <Text>category page!</Text>
-      <Text>{route.params.id}</Text>
+      <Text>{category.id}</Text>
       <Connect
-        query={graphqlOperation(queries.getCategory, { id: route.params.id })}
+        query={graphqlOperation(queries.getCategory, { id: category.id })}
       >
         {({
           data: { getCategory },

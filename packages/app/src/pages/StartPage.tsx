@@ -29,12 +29,7 @@ const StartPage: FunctionComponent<Props> = ({ navigation }) => {
         <CategoryCard
           key={category.id}
           category={category}
-          onPress={() =>
-            navigation.navigate("category", {
-              id: category.id,
-              title: category.name
-            })
-          }
+          onPress={() => navigation.navigate("category", { category })}
         />
       ))}
     </View>
