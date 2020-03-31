@@ -6,6 +6,7 @@ import { isFilled } from "ts-is-present";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "sans-serif-light",
     textAlign: "center",
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: "auto"
   },
   image: {
     marginTop: 60,
@@ -28,7 +30,30 @@ const styles = StyleSheet.create({
   },
   suggestion: {
     color: "#7DC6ED",
-    marginTop: "auto"
+    fontFamily: "sans-serif-light",
+    fontSize: 16,
+    marginBottom: 5
+  },
+  button: {
+    backgroundColor: "white",
+    height: 50,
+    width: 230,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "auto",
+    marginBottom: 25,
+    // android:
+    elevation: 3,
+    // iOS
+    shadowColor: "rgba(0,0,0,0.16)",
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6
+  },
+  buttonText: {
+    color: "#848484",
+    fontSize: 20,
+    fontFamily: "sans-serif-light"
   }
 });
 
@@ -65,14 +90,20 @@ const CategoryPage: FunctionComponent<Props> = ({ route }) => {
     fetchMessages();
   }, []);
 
-  useEffect(() => {
+  const pickRandomMessage = () =>
     setMessage(messages[Math.floor(Math.random() * messages.length)]);
+
+  useEffect(() => {
+    pickRandomMessage();
   }, [messages]);
 
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={category.image} />
       <Text style={styles.message}>{message}</Text>
+      <TouchableOpacity onPress={pickRandomMessage} style={styles.button}>
+        <Text style={styles.buttonText}>Next</Text>
+      </TouchableOpacity>
       <Text style={styles.suggestion}>Have a suggestion?</Text>
     </View>
   );
