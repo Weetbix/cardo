@@ -10,6 +10,7 @@ import StartPage from "./src/pages/StartPage";
 import CategoryPage from "./src/pages/CategoryPage";
 import AddSuggestionPage from "./src/pages/AddSuggestionPage";
 import SuccessfulSuggestionPage from "./src/pages/SuccessfulSubmissionPage";
+import ErrorPage from "./src/pages/ErrorPage";
 
 const Stack = createStackNavigator<NavStackParamList>();
 
@@ -39,6 +40,11 @@ export default function App() {
           name="home"
           component={StartPage}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="error"
+          component={ErrorPage}
+          options={{ title: "Error" }}
         />
         <Stack.Screen
           name="category"
