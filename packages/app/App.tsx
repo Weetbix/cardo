@@ -8,6 +8,8 @@ import {
 } from "@react-navigation/stack";
 import StartPage from "./src/pages/StartPage";
 import CategoryPage from "./src/pages/CategoryPage";
+import AddSuggestionPage from "./src/pages/AddSuggestionPage";
+import SuccessfulSuggestionPage from "./src/pages/SuccessfulSubmissionPage";
 
 const Stack = createStackNavigator<NavStackParamList>();
 
@@ -41,6 +43,20 @@ export default function App() {
         <Stack.Screen
           name="category"
           component={CategoryPage}
+          options={({ route }) => ({
+            title: route.params.category.name
+          })}
+        />
+        <Stack.Screen
+          name="suggestion"
+          component={AddSuggestionPage}
+          options={({ route }) => ({
+            title: route.params.category.name
+          })}
+        />
+        <Stack.Screen
+          name="suggestionsuccess"
+          component={SuccessfulSuggestionPage}
           options={({ route }) => ({
             title: route.params.category.name
           })}

@@ -7,6 +7,7 @@ import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 const styles = StyleSheet.create({
   container: {
@@ -59,9 +60,10 @@ const styles = StyleSheet.create({
 
 type Props = {
   route: RouteProp<NavStackParamList, "category">;
+  navigation: StackNavigationProp<NavStackParamList, "category">;
 };
 
-const CategoryPage: FunctionComponent<Props> = ({ route }) => {
+const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   const {
     params: { category }
   } = route;
@@ -104,7 +106,12 @@ const CategoryPage: FunctionComponent<Props> = ({ route }) => {
       <TouchableOpacity onPress={pickRandomMessage} style={styles.button}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
-      <Text style={styles.suggestion}>Have a suggestion?</Text>
+      <Text
+        style={styles.suggestion}
+        onPress={() => navigation.navigate("suggestion", { category })}
+      >
+        Have a suggestion?
+      </Text>
     </View>
   );
 };

@@ -4,4 +4,6 @@ import { Category } from "./data/categories";
 type NavStackParamList = {
   home: undefined;
   category: { category: Category };
+  suggestion: { category: Category };
+  suggestionsuccess: { category: Category };
 };
