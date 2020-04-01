@@ -56,9 +56,13 @@ const styles = StyleSheet.create({
 
 type Props = {
   route: RouteProp<NavStackParamList, "suggestionsuccess">;
+  navigation: StackNavigationProp<NavStackParamList, "suggestionsuccess">;
 };
 
-const SuccessfulSubmissionPage: FunctionComponent<Props> = ({ route }) => {
+const SuccessfulSubmissionPage: FunctionComponent<Props> = ({
+  route,
+  navigation
+}) => {
   return (
     <View style={styles.container}>
       <View />
@@ -69,7 +73,10 @@ const SuccessfulSubmissionPage: FunctionComponent<Props> = ({ route }) => {
           Your suggestion will appear after it is approved.
         </Text>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("home")}
+      >
         <Text style={styles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
     </View>
