@@ -1,13 +1,17 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { RouteProp } from "@react-navigation/native";
+import Amplify from "aws-amplify";
 import API, { graphqlOperation } from "@aws-amplify/api";
+import { RouteProp } from "@react-navigation/native";
 import { isFilled } from "ts-is-present";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StackNavigationProp } from "@react-navigation/stack";
+
+import amplifyConfig from "../../aws-exports";
+Amplify.configure(amplifyConfig);
 
 const styles = StyleSheet.create({
   container: {

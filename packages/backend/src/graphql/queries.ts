@@ -2,22 +2,6 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const getCategory = /* GraphQL */ `
-  query GetCategory($id: ID!) {
-    getCategory(id: $id) {
-      id
-      name
-      messages {
-        items {
-          id
-          message
-          approved
-        }
-        nextToken
-      }
-    }
-  }
-`;
 export const listCategorys = /* GraphQL */ `
   query ListCategorys(
     $filter: ModelCategoryFilterInput
@@ -33,6 +17,22 @@ export const listCategorys = /* GraphQL */ `
         }
       }
       nextToken
+    }
+  }
+`;
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: ID!) {
+    getCategory(id: $id) {
+      id
+      name
+      messages {
+        items {
+          id
+          message
+          approved
+        }
+        nextToken
+      }
     }
   }
 `;

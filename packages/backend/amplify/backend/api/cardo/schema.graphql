@@ -1,12 +1,28 @@
-type Category @model {
+type Category
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # Allow admins to do everything
+      { allow: groups, groups: ["Admin"] }
+      # Only allow un-auth read with congnito auth
+      { allow: public, provider: iam, operations: [read] }
+    ]
+  ) {
   id: ID!
   name: String!
   messages: [Message] @connection(name: "CategoryMessages")
 }
 
-type Message @model {
+type Message
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: public, provider: iam, operations: [read] }
+    ]
+  ) {
   id: ID!
   message: String!
-  approved: Boolean!
   category: Category! @connection(name: "CategoryMessages")
+  approved: Boolean
 }

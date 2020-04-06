@@ -66,7 +66,7 @@ export type DeleteCategoryInput = {
 export type CreateMessageInput = {
   id?: string | null,
   message: string,
-  approved: boolean,
+  approved?: boolean | null,
   messageCategoryId: string,
 };
 
@@ -145,7 +145,7 @@ export type CreateCategoryMutation = {
         __typename: "Message",
         id: string,
         message: string,
-        approved: boolean,
+        approved: boolean | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -168,7 +168,7 @@ export type UpdateCategoryMutation = {
         __typename: "Message",
         id: string,
         message: string,
-        approved: boolean,
+        approved: boolean | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -191,7 +191,7 @@ export type DeleteCategoryMutation = {
         __typename: "Message",
         id: string,
         message: string,
-        approved: boolean,
+        approved: boolean | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
@@ -208,7 +208,7 @@ export type CreateMessageMutation = {
     __typename: "Message",
     id: string,
     message: string,
-    approved: boolean,
+    approved: boolean | null,
     category:  {
       __typename: "Category",
       id: string,
@@ -231,7 +231,7 @@ export type UpdateMessageMutation = {
     __typename: "Message",
     id: string,
     message: string,
-    approved: boolean,
+    approved: boolean | null,
     category:  {
       __typename: "Category",
       id: string,
@@ -254,7 +254,7 @@ export type DeleteMessageMutation = {
     __typename: "Message",
     id: string,
     message: string,
-    approved: boolean,
+    approved: boolean | null,
     category:  {
       __typename: "Category",
       id: string,
@@ -264,28 +264,6 @@ export type DeleteMessageMutation = {
         nextToken: string | null,
       } | null,
     },
-  } | null,
-};
-
-export type GetCategoryQueryVariables = {
-  id: string,
-};
-
-export type GetCategoryQuery = {
-  getCategory:  {
-    __typename: "Category",
-    id: string,
-    name: string,
-    messages:  {
-      __typename: "ModelMessageConnection",
-      items:  Array< {
-        __typename: "Message",
-        id: string,
-        message: string,
-        approved: boolean,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
   } | null,
 };
 
@@ -311,6 +289,28 @@ export type ListCategorysQuery = {
   } | null,
 };
 
+export type GetCategoryQueryVariables = {
+  id: string,
+};
+
+export type GetCategoryQuery = {
+  getCategory:  {
+    __typename: "Category",
+    id: string,
+    name: string,
+    messages:  {
+      __typename: "ModelMessageConnection",
+      items:  Array< {
+        __typename: "Message",
+        id: string,
+        message: string,
+        approved: boolean | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
 export type GetMessageQueryVariables = {
   id: string,
 };
@@ -320,7 +320,7 @@ export type GetMessageQuery = {
     __typename: "Message",
     id: string,
     message: string,
-    approved: boolean,
+    approved: boolean | null,
     category:  {
       __typename: "Category",
       id: string,
@@ -346,7 +346,7 @@ export type ListMessagesQuery = {
       __typename: "Message",
       id: string,
       message: string,
-      approved: boolean,
+      approved: boolean | null,
       category:  {
         __typename: "Category",
         id: string,
@@ -354,113 +354,5 @@ export type ListMessagesQuery = {
       },
     } | null > | null,
     nextToken: string | null,
-  } | null,
-};
-
-export type OnCreateCategorySubscription = {
-  onCreateCategory:  {
-    __typename: "Category",
-    id: string,
-    name: string,
-    messages:  {
-      __typename: "ModelMessageConnection",
-      items:  Array< {
-        __typename: "Message",
-        id: string,
-        message: string,
-        approved: boolean,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnUpdateCategorySubscription = {
-  onUpdateCategory:  {
-    __typename: "Category",
-    id: string,
-    name: string,
-    messages:  {
-      __typename: "ModelMessageConnection",
-      items:  Array< {
-        __typename: "Message",
-        id: string,
-        message: string,
-        approved: boolean,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnDeleteCategorySubscription = {
-  onDeleteCategory:  {
-    __typename: "Category",
-    id: string,
-    name: string,
-    messages:  {
-      __typename: "ModelMessageConnection",
-      items:  Array< {
-        __typename: "Message",
-        id: string,
-        message: string,
-        approved: boolean,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnCreateMessageSubscription = {
-  onCreateMessage:  {
-    __typename: "Message",
-    id: string,
-    message: string,
-    approved: boolean,
-    category:  {
-      __typename: "Category",
-      id: string,
-      name: string,
-      messages:  {
-        __typename: "ModelMessageConnection",
-        nextToken: string | null,
-      } | null,
-    },
-  } | null,
-};
-
-export type OnUpdateMessageSubscription = {
-  onUpdateMessage:  {
-    __typename: "Message",
-    id: string,
-    message: string,
-    approved: boolean,
-    category:  {
-      __typename: "Category",
-      id: string,
-      name: string,
-      messages:  {
-        __typename: "ModelMessageConnection",
-        nextToken: string | null,
-      } | null,
-    },
-  } | null,
-};
-
-export type OnDeleteMessageSubscription = {
-  onDeleteMessage:  {
-    __typename: "Message",
-    id: string,
-    message: string,
-    approved: boolean,
-    category:  {
-      __typename: "Category",
-      id: string,
-      name: string,
-      messages:  {
-        __typename: "ModelMessageConnection",
-        nextToken: string | null,
-      } | null,
-    },
   } | null,
 };
