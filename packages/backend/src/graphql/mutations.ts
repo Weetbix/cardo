@@ -2,6 +2,22 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
+export const submitMessage = /* GraphQL */ `
+  mutation SubmitMessage($message: String!, $messageCategoryId: ID!) {
+    submitMessage(message: $message, messageCategoryId: $messageCategoryId) {
+      id
+      message
+      approved
+      category {
+        id
+        name
+        messages {
+          nextToken
+        }
+      }
+    }
+  }
+`;
 export const createCategory = /* GraphQL */ `
   mutation CreateCategory(
     $input: CreateCategoryInput!

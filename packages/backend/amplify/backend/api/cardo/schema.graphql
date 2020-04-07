@@ -26,3 +26,7 @@ type Message
   category: Category! @connection(name: "CategoryMessages")
   approved: Boolean
 }
+
+type Mutation {
+  submitMessage(message: String!, messageCategoryId: ID!): Message
+}

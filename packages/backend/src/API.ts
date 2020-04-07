@@ -129,6 +129,29 @@ export type ModelMessageFilterInput = {
   not?: ModelMessageFilterInput | null,
 };
 
+export type SubmitMessageMutationVariables = {
+  message: string,
+  messageCategoryId: string,
+};
+
+export type SubmitMessageMutation = {
+  submitMessage:  {
+    __typename: "Message",
+    id: string,
+    message: string,
+    approved: boolean | null,
+    category:  {
+      __typename: "Category",
+      id: string,
+      name: string,
+      messages:  {
+        __typename: "ModelMessageConnection",
+        nextToken: string | null,
+      } | null,
+    },
+  } | null,
+};
+
 export type CreateCategoryMutationVariables = {
   input: CreateCategoryInput,
   condition?: ModelCategoryConditionInput | null,
