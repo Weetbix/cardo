@@ -2,13 +2,6 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export enum ReportReason {
-  INAPPROPRIATE = "INAPPROPRIATE",
-  SPAM = "SPAM",
-  OTHER = "OTHER",
-}
-
-
 export type CreateCategoryInput = {
   id?: string | null,
   name: string,
@@ -104,9 +97,17 @@ export type DeleteMessageInput = {
 };
 
 export type CreateReportInput = {
+  id?: string | null,
   reason: ReportReason,
   reportMessageId: string,
 };
+
+export enum ReportReason {
+  INAPPROPRIATE = "INAPPROPRIATE",
+  SPAM = "SPAM",
+  OTHER = "OTHER",
+}
+
 
 export type ModelReportConditionInput = {
   reason?: ModelReportReasonInput | null,
@@ -121,6 +122,7 @@ export type ModelReportReasonInput = {
 };
 
 export type UpdateReportInput = {
+  id: string,
   reason?: ReportReason | null,
   reportMessageId?: string | null,
 };
@@ -163,6 +165,7 @@ export type ModelMessageFilterInput = {
 };
 
 export type ModelReportFilterInput = {
+  id?: ModelIDInput | null,
   reason?: ModelReportReasonInput | null,
   and?: Array< ModelReportFilterInput | null > | null,
   or?: Array< ModelReportFilterInput | null > | null,
@@ -188,29 +191,6 @@ export type SubmitMessageMutation = {
         __typename: "ModelMessageConnection",
         nextToken: string | null,
       } | null,
-    },
-  } | null,
-};
-
-export type ReportMessageMutationVariables = {
-  messageID: string,
-  reason: ReportReason,
-};
-
-export type ReportMessageMutation = {
-  reportMessage:  {
-    __typename: "Report",
-    reason: ReportReason,
-    message:  {
-      __typename: "Message",
-      id: string,
-      message: string,
-      approved: boolean | null,
-      category:  {
-        __typename: "Category",
-        id: string,
-        name: string,
-      },
     },
   } | null,
 };
@@ -361,6 +341,7 @@ export type CreateReportMutationVariables = {
 export type CreateReportMutation = {
   createReport:  {
     __typename: "Report",
+    id: string,
     reason: ReportReason,
     message:  {
       __typename: "Message",
@@ -384,6 +365,7 @@ export type UpdateReportMutationVariables = {
 export type UpdateReportMutation = {
   updateReport:  {
     __typename: "Report",
+    id: string,
     reason: ReportReason,
     message:  {
       __typename: "Message",
@@ -407,6 +389,7 @@ export type DeleteReportMutationVariables = {
 export type DeleteReportMutation = {
   deleteReport:  {
     __typename: "Report",
+    id: string,
     reason: ReportReason,
     message:  {
       __typename: "Message",
@@ -519,6 +502,7 @@ export type GetReportQueryVariables = {
 export type GetReportQuery = {
   getReport:  {
     __typename: "Report",
+    id: string,
     reason: ReportReason,
     message:  {
       __typename: "Message",
@@ -545,6 +529,7 @@ export type ListReportsQuery = {
     __typename: "ModelReportConnection",
     items:  Array< {
       __typename: "Report",
+      id: string,
       reason: ReportReason,
       message:  {
         __typename: "Message",

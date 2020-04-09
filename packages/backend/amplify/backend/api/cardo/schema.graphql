@@ -35,12 +35,17 @@ enum ReportReason {
 
 type Report
   @model(subscriptions: null)
-  @auth(rules: [{ allow: groups, groups: ["Admin"] }]) {
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: public, provider: iam, operations: [create] }
+    ]
+  ) {
+  id: ID!
   message: Message! @connection
   reason: ReportReason!
 }
 
 type Mutation {
   submitMessage(message: String!, messageCategoryId: ID!): Message
-  reportMessage(messageID: ID!, reason: ReportReason!): Report
 }

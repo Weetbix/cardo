@@ -18,22 +18,6 @@ export const submitMessage = /* GraphQL */ `
     }
   }
 `;
-export const reportMessage = /* GraphQL */ `
-  mutation ReportMessage($messageID: ID!, $reason: ReportReason!) {
-    reportMessage(messageID: $messageID, reason: $reason) {
-      reason
-      message {
-        id
-        message
-        approved
-        category {
-          id
-          name
-        }
-      }
-    }
-  }
-`;
 export const createCategory = /* GraphQL */ `
   mutation CreateCategory(
     $input: CreateCategoryInput!
@@ -154,6 +138,7 @@ export const createReport = /* GraphQL */ `
     $condition: ModelReportConditionInput
   ) {
     createReport(input: $input, condition: $condition) {
+      id
       reason
       message {
         id
@@ -173,6 +158,7 @@ export const updateReport = /* GraphQL */ `
     $condition: ModelReportConditionInput
   ) {
     updateReport(input: $input, condition: $condition) {
+      id
       reason
       message {
         id
@@ -192,6 +178,7 @@ export const deleteReport = /* GraphQL */ `
     $condition: ModelReportConditionInput
   ) {
     deleteReport(input: $input, condition: $condition) {
+      id
       reason
       message {
         id

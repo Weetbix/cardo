@@ -75,6 +75,7 @@ export const getMessage = /* GraphQL */ `
 export const getReport = /* GraphQL */ `
   query GetReport($id: ID!) {
     getReport(id: $id) {
+      id
       reason
       message {
         id
@@ -96,6 +97,7 @@ export const listReports = /* GraphQL */ `
   ) {
     listReports(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
+        id
         reason
         message {
           id
