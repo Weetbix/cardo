@@ -7,8 +7,8 @@ import { isFilled } from "ts-is-present";
 import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Button from "../components/Button";
 
 import amplifyConfig from "../../aws-exports";
 Amplify.configure(amplifyConfig);
@@ -20,46 +20,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     paddingLeft: 45,
-    paddingRight: 45
+    paddingRight: 45,
   },
   message: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
     textAlign: "center",
     marginTop: 50,
-    marginBottom: "auto"
+    marginBottom: "auto",
   },
   image: {
     marginTop: 60,
-    borderRadius: 100
+    borderRadius: 100,
   },
   suggestion: {
     color: "#7DC6ED",
     fontFamily: "sans-serif-light",
     fontSize: 16,
-    marginBottom: 5
+    marginBottom: 5,
   },
-  button: {
-    backgroundColor: "white",
-    height: 50,
-    width: 230,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "auto",
-    marginBottom: 25,
-    // android:
-    elevation: 3,
-    // iOS
-    shadowColor: "rgba(0,0,0,0.16)",
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 6
-  },
-  buttonText: {
-    color: "#848484",
-    fontSize: 20,
-    fontFamily: "sans-serif-light"
-  }
 });
 
 type Props = {
@@ -69,7 +48,7 @@ type Props = {
 
 const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   const {
-    params: { category }
+    params: { category },
   } = route;
 
   const [messages, setMessages] = useState<string[]>([]);
@@ -87,7 +66,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
       if (messageData.data.getCategory?.messages?.items?.length) {
         const fetchedMessages = messageData.data.getCategory.messages.items
           .filter(isFilled)
-          .map(item => item.message);
+          .map((item) => item.message);
 
         setMessages(fetchedMessages);
       }
@@ -107,9 +86,9 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={category.image} />
       <Text style={styles.message}>{message}</Text>
-      <TouchableOpacity onPress={pickRandomMessage} style={styles.button}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+      <Button onPress={pickRandomMessage} style={{ marginBottom: 25 }}>
+        Next
+      </Button>
       <Text
         style={styles.suggestion}
         onPress={() => navigation.navigate("suggestion", { category })}

@@ -1,11 +1,11 @@
 import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import API from "@aws-amplify/api";
 import * as mutations from "@cardo/backend/src/graphql/mutations";
 import { NavStackParamList } from "../types";
+import Button from "../components/Button";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,27 +22,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 5,
     marginBottom: 25,
-  },
-  button: {
-    backgroundColor: "white",
-    height: 50,
-    width: 230,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 25,
-    marginBottom: 5,
-    // android:
-    elevation: 3,
-    // iOS
-    shadowColor: "rgba(0,0,0,0.16)",
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 6,
-  },
-  buttonText: {
-    color: "#848484",
-    fontSize: 20,
-    fontFamily: "sans-serif-light",
   },
   textInput: {
     borderWidth: 1,
@@ -95,9 +74,12 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
         multiline={true}
         editable
       />
-      <TouchableOpacity style={styles.button} onPress={onSubmitSuggestion}>
-        <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity>
+      <Button
+        onPress={onSubmitSuggestion}
+        style={{ marginTop: 25, marginBottom: 5 }}
+      >
+        Submit
+      </Button>
     </View>
   );
 };

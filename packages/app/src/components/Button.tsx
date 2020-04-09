@@ -1,0 +1,44 @@
+import React, { FunctionComponent } from "react";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "white",
+    height: 50,
+    width: 230,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+
+    // android:
+    elevation: 3,
+    // iOS
+    shadowColor: "rgba(0,0,0,0.16)",
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+  },
+  buttonText: {
+    color: "#848484",
+    fontSize: 20,
+    fontFamily: "sans-serif-light",
+  },
+});
+
+const Button: FunctionComponent<{
+  onPress: () => void;
+  style?: StyleProp<ViewStyle>;
+}> = ({ onPress, children, style }) => {
+  return (
+    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+      <Text style={styles.buttonText}>{children}</Text>
+    </TouchableOpacity>
+  );
+};
+
+export default Button;
