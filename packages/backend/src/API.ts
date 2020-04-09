@@ -2,6 +2,13 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export enum ReportReason {
+  INAPPROPRIATE = "INAPPROPRIATE",
+  SPAM = "SPAM",
+  OTHER = "OTHER",
+}
+
+
 export type CreateCategoryInput = {
   id?: string | null,
   name: string,
@@ -96,6 +103,32 @@ export type DeleteMessageInput = {
   id?: string | null,
 };
 
+export type CreateReportInput = {
+  reason: ReportReason,
+  reportMessageId: string,
+};
+
+export type ModelReportConditionInput = {
+  reason?: ModelReportReasonInput | null,
+  and?: Array< ModelReportConditionInput | null > | null,
+  or?: Array< ModelReportConditionInput | null > | null,
+  not?: ModelReportConditionInput | null,
+};
+
+export type ModelReportReasonInput = {
+  eq?: ReportReason | null,
+  ne?: ReportReason | null,
+};
+
+export type UpdateReportInput = {
+  reason?: ReportReason | null,
+  reportMessageId?: string | null,
+};
+
+export type DeleteReportInput = {
+  id?: string | null,
+};
+
 export type ModelCategoryFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -129,6 +162,13 @@ export type ModelMessageFilterInput = {
   not?: ModelMessageFilterInput | null,
 };
 
+export type ModelReportFilterInput = {
+  reason?: ModelReportReasonInput | null,
+  and?: Array< ModelReportFilterInput | null > | null,
+  or?: Array< ModelReportFilterInput | null > | null,
+  not?: ModelReportFilterInput | null,
+};
+
 export type SubmitMessageMutationVariables = {
   message: string,
   messageCategoryId: string,
@@ -148,6 +188,29 @@ export type SubmitMessageMutation = {
         __typename: "ModelMessageConnection",
         nextToken: string | null,
       } | null,
+    },
+  } | null,
+};
+
+export type ReportMessageMutationVariables = {
+  messageID: string,
+  reason: ReportReason,
+};
+
+export type ReportMessageMutation = {
+  reportMessage:  {
+    __typename: "Report",
+    reason: ReportReason,
+    message:  {
+      __typename: "Message",
+      id: string,
+      message: string,
+      approved: boolean | null,
+      category:  {
+        __typename: "Category",
+        id: string,
+        name: string,
+      },
     },
   } | null,
 };
@@ -290,6 +353,75 @@ export type DeleteMessageMutation = {
   } | null,
 };
 
+export type CreateReportMutationVariables = {
+  input: CreateReportInput,
+  condition?: ModelReportConditionInput | null,
+};
+
+export type CreateReportMutation = {
+  createReport:  {
+    __typename: "Report",
+    reason: ReportReason,
+    message:  {
+      __typename: "Message",
+      id: string,
+      message: string,
+      approved: boolean | null,
+      category:  {
+        __typename: "Category",
+        id: string,
+        name: string,
+      },
+    },
+  } | null,
+};
+
+export type UpdateReportMutationVariables = {
+  input: UpdateReportInput,
+  condition?: ModelReportConditionInput | null,
+};
+
+export type UpdateReportMutation = {
+  updateReport:  {
+    __typename: "Report",
+    reason: ReportReason,
+    message:  {
+      __typename: "Message",
+      id: string,
+      message: string,
+      approved: boolean | null,
+      category:  {
+        __typename: "Category",
+        id: string,
+        name: string,
+      },
+    },
+  } | null,
+};
+
+export type DeleteReportMutationVariables = {
+  input: DeleteReportInput,
+  condition?: ModelReportConditionInput | null,
+};
+
+export type DeleteReportMutation = {
+  deleteReport:  {
+    __typename: "Report",
+    reason: ReportReason,
+    message:  {
+      __typename: "Message",
+      id: string,
+      message: string,
+      approved: boolean | null,
+      category:  {
+        __typename: "Category",
+        id: string,
+        name: string,
+      },
+    },
+  } | null,
+};
+
 export type ListCategorysQueryVariables = {
   filter?: ModelCategoryFilterInput | null,
   limit?: number | null,
@@ -334,6 +466,30 @@ export type GetCategoryQuery = {
   } | null,
 };
 
+export type ListMessagesQueryVariables = {
+  filter?: ModelMessageFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListMessagesQuery = {
+  listMessages:  {
+    __typename: "ModelMessageConnection",
+    items:  Array< {
+      __typename: "Message",
+      id: string,
+      message: string,
+      approved: boolean | null,
+      category:  {
+        __typename: "Category",
+        id: string,
+        name: string,
+      },
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type GetMessageQueryVariables = {
   id: string,
 };
@@ -356,16 +512,15 @@ export type GetMessageQuery = {
   } | null,
 };
 
-export type ListMessagesQueryVariables = {
-  filter?: ModelMessageFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
+export type GetReportQueryVariables = {
+  id: string,
 };
 
-export type ListMessagesQuery = {
-  listMessages:  {
-    __typename: "ModelMessageConnection",
-    items:  Array< {
+export type GetReportQuery = {
+  getReport:  {
+    __typename: "Report",
+    reason: ReportReason,
+    message:  {
       __typename: "Message",
       id: string,
       message: string,
@@ -374,6 +529,28 @@ export type ListMessagesQuery = {
         __typename: "Category",
         id: string,
         name: string,
+      },
+    },
+  } | null,
+};
+
+export type ListReportsQueryVariables = {
+  filter?: ModelReportFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListReportsQuery = {
+  listReports:  {
+    __typename: "ModelReportConnection",
+    items:  Array< {
+      __typename: "Report",
+      reason: ReportReason,
+      message:  {
+        __typename: "Message",
+        id: string,
+        message: string,
+        approved: boolean | null,
       },
     } | null > | null,
     nextToken: string | null,

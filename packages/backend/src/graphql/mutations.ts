@@ -18,6 +18,22 @@ export const submitMessage = /* GraphQL */ `
     }
   }
 `;
+export const reportMessage = /* GraphQL */ `
+  mutation ReportMessage($messageID: ID!, $reason: ReportReason!) {
+    reportMessage(messageID: $messageID, reason: $reason) {
+      reason
+      message {
+        id
+        message
+        approved
+        category {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
 export const createCategory = /* GraphQL */ `
   mutation CreateCategory(
     $input: CreateCategoryInput!
@@ -127,6 +143,63 @@ export const deleteMessage = /* GraphQL */ `
         name
         messages {
           nextToken
+        }
+      }
+    }
+  }
+`;
+export const createReport = /* GraphQL */ `
+  mutation CreateReport(
+    $input: CreateReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    createReport(input: $input, condition: $condition) {
+      reason
+      message {
+        id
+        message
+        approved
+        category {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+export const updateReport = /* GraphQL */ `
+  mutation UpdateReport(
+    $input: UpdateReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    updateReport(input: $input, condition: $condition) {
+      reason
+      message {
+        id
+        message
+        approved
+        category {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+export const deleteReport = /* GraphQL */ `
+  mutation DeleteReport(
+    $input: DeleteReportInput!
+    $condition: ModelReportConditionInput
+  ) {
+    deleteReport(input: $input, condition: $condition) {
+      reason
+      message {
+        id
+        message
+        approved
+        category {
+          id
+          name
         }
       }
     }

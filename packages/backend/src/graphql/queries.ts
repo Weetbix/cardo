@@ -36,6 +36,26 @@ export const getCategory = /* GraphQL */ `
     }
   }
 `;
+export const listMessages = /* GraphQL */ `
+  query ListMessages(
+    $filter: ModelMessageFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        message
+        approved
+        category {
+          id
+          name
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const getMessage = /* GraphQL */ `
   query GetMessage($id: ID!) {
     getMessage(id: $id) {
@@ -52,20 +72,35 @@ export const getMessage = /* GraphQL */ `
     }
   }
 `;
-export const listMessages = /* GraphQL */ `
-  query ListMessages(
-    $filter: ModelMessageFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
+export const getReport = /* GraphQL */ `
+  query GetReport($id: ID!) {
+    getReport(id: $id) {
+      reason
+      message {
         id
         message
         approved
         category {
           id
           name
+        }
+      }
+    }
+  }
+`;
+export const listReports = /* GraphQL */ `
+  query ListReports(
+    $filter: ModelReportFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listReports(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        reason
+        message {
+          id
+          message
+          approved
         }
       }
       nextToken

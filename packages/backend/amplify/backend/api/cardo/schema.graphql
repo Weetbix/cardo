@@ -27,6 +27,20 @@ type Message
   approved: Boolean
 }
 
+enum ReportReason {
+  INAPPROPRIATE
+  SPAM
+  OTHER
+}
+
+type Report
+  @model(subscriptions: null)
+  @auth(rules: [{ allow: groups, groups: ["Admin"] }]) {
+  message: Message! @connection
+  reason: ReportReason!
+}
+
 type Mutation {
   submitMessage(message: String!, messageCategoryId: ID!): Message
+  reportMessage(messageID: ID!, reason: ReportReason!): Report
 }
