@@ -1,5 +1,11 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { RouteProp } from "@react-navigation/native";
@@ -34,6 +40,11 @@ const styles = StyleSheet.create({
   },
 });
 
+type Message = {
+  text: string;
+  id: string;
+};
+
 type Props = {
   route: RouteProp<NavStackParamList, "category">;
   navigation: StackNavigationProp<NavStackParamList, "category">;
@@ -44,8 +55,24 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
     params: { category },
   } = route;
 
-  const [messages, setMessages] = useState<string[]>([]);
-  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [message, setMessage] = useState<Message | null>(null);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Feather
+          name="flag"
+          size={20}
+          onPress={() =>
+            message?.id &&
+            navigation.navigate("reportmessage", { messageId: message?.id })
+          }
+          style={{ marginRight: 20 }}
+        />
+      ),
+    });
+  }, [navigation]);
 
   useEffect(() => {
     // Fetch the message data and filter down
@@ -57,9 +84,9 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
       );
 
       if (messageData.data.getCategory?.messages?.items?.length) {
-        const fetchedMessages = messageData.data.getCategory.messages.items
+        const fetchedMessages: Message[] = messageData.data.getCategory.messages.items
           .filter(isFilled)
-          .map((item) => item.message);
+          .map((item) => ({ text: item.message, id: item.id }));
 
         setMessages(fetchedMessages);
       }
@@ -78,7 +105,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   return (
     <Page centered>
       <Image style={styles.image} source={category.image} />
-      <Text style={styles.message}>{message}</Text>
+      <Text style={styles.message}>{message?.text}</Text>
       <Button onPress={pickRandomMessage} style={{ marginBottom: 25 }}>
         Next
       </Button>
