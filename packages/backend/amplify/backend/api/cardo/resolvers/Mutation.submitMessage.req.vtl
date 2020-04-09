@@ -49,7 +49,7 @@ $util.qr($context.args.input.put("__typename", "Message"))
   {
     "message" : $util.dynamodb.toDynamoDBJson($context.args.message),
     "messageCategoryId" : $util.dynamodb.toDynamoDBJson($context.args.messageCategoryId),
-    # Force message t obe unapproved
+    ## Force message to be unapproved
     "approved" : $util.dynamodb.toDynamoDBJson(false)
   },
   "condition": $util.toJson($condition)
