@@ -5,17 +5,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import API from "@aws-amplify/api";
 import * as mutations from "@cardo/backend/src/graphql/mutations";
 import { NavStackParamList } from "../types";
+import Page from "../components/Page";
 import Button from "../components/Button";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    padding: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
   header: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
@@ -65,7 +58,7 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <Page centered>
       <Text style={styles.header}>Your suggestion</Text>
       <TextInput
         style={styles.textInput}
@@ -80,7 +73,7 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
       >
         Submit
       </Button>
-    </View>
+    </Page>
   );
 };
 

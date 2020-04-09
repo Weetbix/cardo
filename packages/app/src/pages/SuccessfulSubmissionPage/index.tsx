@@ -1,70 +1,40 @@
 import React, { FunctionComponent } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { RouteProp } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { NavStackParamList } from "../../types";
+import Page from "../../components/Page";
+import Button from "../../components/Button";
+import { StackNavigationProp } from "@react-navigation/stack";
 const splash = require("./images/splash.png");
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    padding: 20,
-    paddingLeft: 45,
-    paddingRight: 45,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   centerContent: {
     textAlign: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   header: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
     textAlign: "center",
-    marginTop: 28
+    marginTop: 28,
   },
   subHeader: {
     fontSize: 20,
     fontFamily: "sans-serif-light",
     textAlign: "center",
-    marginTop: 15
+    marginTop: 15,
   },
-  button: {
-    backgroundColor: "white",
-    height: 50,
-    width: 230,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 25,
-    marginBottom: 5,
-    // android:
-    elevation: 3,
-    // iOS
-    shadowColor: "rgba(0,0,0,0.16)",
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 6
-  },
-  buttonText: {
-    color: "#848484",
-    fontSize: 20,
-    fontFamily: "sans-serif-light"
-  }
 });
 
 type Props = {
-  route: RouteProp<NavStackParamList, "suggestionsuccess">;
   navigation: StackNavigationProp<NavStackParamList, "suggestionsuccess">;
 };
 
-const SuccessfulSubmissionPage: FunctionComponent<Props> = ({
-  route,
-  navigation
-}) => {
+const SuccessfulSubmissionPage: FunctionComponent<Props> = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <Page centered style={styles.container}>
       <View />
       <View style={styles.centerContent}>
         <Image source={splash} />
@@ -73,13 +43,8 @@ const SuccessfulSubmissionPage: FunctionComponent<Props> = ({
           Your suggestion will appear after it is approved.
         </Text>
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("home")}
-      >
-        <Text style={styles.buttonText}>Back to Home</Text>
-      </TouchableOpacity>
-    </View>
+      <Button onPress={() => navigation.navigate("home")}>Back to Home</Button>
+    </Page>
   );
 };
 

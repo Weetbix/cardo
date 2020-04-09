@@ -8,20 +8,13 @@ import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Page from "../components/Page";
 import Button from "../components/Button";
 
 import amplifyConfig from "../../aws-exports";
 Amplify.configure(amplifyConfig);
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    padding: 20,
-    paddingLeft: 45,
-    paddingRight: 45,
-  },
   message: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
@@ -83,7 +76,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   }, [messages]);
 
   return (
-    <View style={styles.container}>
+    <Page centered>
       <Image style={styles.image} source={category.image} />
       <Text style={styles.message}>{message}</Text>
       <Button onPress={pickRandomMessage} style={{ marginBottom: 25 }}>
@@ -95,7 +88,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
       >
         Have a suggestion?
       </Text>
-    </View>
+    </Page>
   );
 };
 
