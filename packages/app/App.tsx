@@ -10,6 +10,7 @@ import StartPage from "./src/pages/StartPage";
 import CategoryPage from "./src/pages/CategoryPage";
 import AddSuggestionPage from "./src/pages/AddSuggestionPage";
 import ReportMessagePage from "./src/pages/ReportMessagePage";
+import ReportMessageSuccessPage from "./src/pages/ReportMessageSuccessPage";
 import SuccessfulSuggestionPage from "./src/pages/SuccessfulSubmissionPage";
 import ErrorPage from "./src/pages/ErrorPage";
 
@@ -71,7 +72,12 @@ export default function App() {
         <Stack.Screen
           name="reportmessage"
           component={ReportMessagePage}
-          options={{ title: "Report" }}
+          options={{ title: "Report a Message" }}
+        />
+        <Stack.Screen
+          name="reportmessagesuccess"
+          component={ReportMessageSuccessPage}
+          options={{ title: "Report a Message" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

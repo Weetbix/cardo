@@ -8,4 +8,5 @@ type NavStackParamList = {
   suggestion: { category: Category };
   suggestionsuccess: { category: Category };
   reportmessage: { messageId: string };
+  reportmessagesuccess: undefined;
 };

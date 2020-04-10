@@ -66,13 +66,13 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
           size={20}
           onPress={() =>
             message?.id &&
-            navigation.navigate("reportmessage", { messageId: message?.id })
+            navigation.navigate("reportmessage", { messageId: message.id })
           }
           style={{ marginRight: 20 }}
         />
       ),
     });
-  }, [navigation]);
+  }, [navigation, message]);
 
   useEffect(() => {
     // Fetch the message data and filter down
