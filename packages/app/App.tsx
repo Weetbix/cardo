@@ -6,14 +6,13 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from "@react-navigation/stack";
+import { NavStackParamList } from "./src/types";
 import StartPage from "./src/pages/StartPage";
 import CategoryPage from "./src/pages/CategoryPage";
 import AddSuggestionPage from "./src/pages/AddSuggestionPage";
 import ReportMessagePage from "./src/pages/ReportMessagePage";
-import ReportMessageSuccessPage from "./src/pages/ReportMessageSuccessPage";
-import SuccessfulSuggestionPage from "./src/pages/SuccessfulSubmissionPage";
 import ErrorPage from "./src/pages/ErrorPage";
-
+import SplashPage from "./src/pages/SplashPage";
 const Stack = createStackNavigator<NavStackParamList>();
 
 import amplifyConfig from "./aws-exports.js";
@@ -63,21 +62,16 @@ export default function App() {
           })}
         />
         <Stack.Screen
-          name="suggestionsuccess"
-          component={SuccessfulSuggestionPage}
-          options={({ route }) => ({
-            title: route.params.category.name,
-          })}
-        />
-        <Stack.Screen
           name="reportmessage"
           component={ReportMessagePage}
           options={{ title: "Report a Message" }}
         />
         <Stack.Screen
-          name="reportmessagesuccess"
-          component={ReportMessageSuccessPage}
-          options={{ title: "Report a Message" }}
+          name="splash"
+          component={SplashPage}
+          options={({ route }) => ({
+            title: route.params.title,
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

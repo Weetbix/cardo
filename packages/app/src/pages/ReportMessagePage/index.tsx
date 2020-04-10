@@ -52,7 +52,12 @@ const ReportMessagePage: FunctionComponent<Props> = ({ route, navigation }) => {
           },
         },
       });
-      navigation.navigate("reportmessagesuccess");
+      navigation.navigate("splash", {
+        title: "Report a Message",
+        header: "Thanks!",
+        subHeader:
+          "Your feedback is important in helping us keep the community safe.",
+      });
     } catch (error) {
       navigation.navigate("error");
     }

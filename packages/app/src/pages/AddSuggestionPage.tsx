@@ -51,7 +51,11 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
       });
 
       setSuggestion("");
-      navigation.navigate("suggestionsuccess", { category });
+      navigation.navigate("splash", {
+        title: category.name,
+        header: "Thanks!",
+        subHeader: "Your suggestion will appear after it is approved.",
+      });
     } catch (error) {
       navigation.navigate("error");
     }

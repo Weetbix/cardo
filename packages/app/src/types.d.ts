@@ -1,4 +1,5 @@
 import { Category } from "./data/categories";
+import { ImageSourcePropType } from "react-native";
 
 // Define the types for the route params so we can type check
 type NavStackParamList = {
@@ -6,7 +7,11 @@ type NavStackParamList = {
   error: undefined;
   category: { category: Category };
   suggestion: { category: Category };
-  suggestionsuccess: { category: Category };
   reportmessage: { messageId: string };
-  reportmessagesuccess: undefined;
+  splash: {
+    title: string;
+    header: string;
+    subHeader: string;
+    image?: ImageSourcePropType;
+  };
 };
