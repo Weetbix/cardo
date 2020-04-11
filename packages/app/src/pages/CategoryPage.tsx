@@ -4,13 +4,12 @@ import React, {
   useEffect,
   useLayoutEffect,
 } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, Image, ActivityIndicator, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
-import API, { graphqlOperation } from "@aws-amplify/api";
+import API from "@aws-amplify/api";
 import { RouteProp } from "@react-navigation/native";
 import { isFilled } from "ts-is-present";
-import * as queries from "@cardo/backend/src/graphql/queries";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -21,13 +20,15 @@ import amplifyConfig from "../../aws-exports";
 Amplify.configure(amplifyConfig);
 
 const styles = StyleSheet.create({
+  messageContent: {
+    marginTop: 50,
+    marginBottom: "auto",
+  },
   message: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
     color: "#5A5A5A",
     textAlign: "center",
-    marginTop: 50,
-    marginBottom: "auto",
   },
   image: {
     marginTop: 60,
@@ -116,7 +117,13 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   return (
     <Page centered>
       <Image style={styles.image} source={category.image} />
-      <Text style={styles.message}>{message?.text}</Text>
+      <View style={styles.messageContent}>
+        {message ? (
+          <Text style={styles.message}>{message.text}</Text>
+        ) : (
+          <ActivityIndicator size="large" color="#DDDDDD" />
+        )}
+      </View>
       <Button onPress={pickRandomMessage} style={{ marginBottom: 25 }}>
         Next
       </Button>
