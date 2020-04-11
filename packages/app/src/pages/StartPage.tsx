@@ -19,7 +19,7 @@ type Props = {
 };
 const StartPage: FunctionComponent<Props> = ({ navigation }) => {
   return (
-    <Page style={{ paddingTop: 50 }}>
+    <Page scrollable padStatusBar style={{ paddingTop: 50 }}>
       <Text style={styles.header}>Choose an occasion</Text>
       {CATEGORIES.map((category) => (
         <CategoryCard
