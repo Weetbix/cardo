@@ -58,6 +58,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [message, setMessage] = useState<Message | null>(null);
 
+  // add the report button to the top bar
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -74,14 +75,24 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
     });
   }, [navigation, message]);
 
+  // Fetch the message data
   useEffect(() => {
-    // Fetch the message data and filter down
     async function fetchMessages() {
       const messageData: {
         data: GetCategoryQuery;
-      } = await API.graphql(
-        graphqlOperation(queries.getCategory, { id: category.id })
-      );
+      } = await API.graphql({
+        query: `query getApprovedMessages($id: ID!) {
+          getCategory(id: $id) {
+            messages(limit: 1000, filter: { approved: { eq: true } }) {
+              items {
+                message
+                id
+              }
+            }
+          }
+        }`,
+        variables: { id: category.id },
+      });
 
       if (messageData.data.getCategory?.messages?.items?.length) {
         const fetchedMessages: Message[] = messageData.data.getCategory.messages.items
