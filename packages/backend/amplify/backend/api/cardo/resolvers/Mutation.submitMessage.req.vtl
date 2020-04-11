@@ -35,10 +35,6 @@
 ## [End] Check authMode and execute owner/group checks **
 
 ## [Start] Prepare DynamoDB PutItem Request. **
-$util.qr($context.args.input.put("createdAt", $util.defaultIfNull($ctx.args.input.createdAt, $util.time.nowISO8601())))
-$util.qr($context.args.input.put("updatedAt", $util.defaultIfNull($ctx.args.input.updatedAt, $util.time.nowISO8601())))
-$util.qr($context.args.input.put("__typename", "Message"))
-
 {
   "version": "2017-02-28",
   "operation": "PutItem",
@@ -50,7 +46,11 @@ $util.qr($context.args.input.put("__typename", "Message"))
     "message" : $util.dynamodb.toDynamoDBJson($context.args.message),
     "messageCategoryId" : $util.dynamodb.toDynamoDBJson($context.args.messageCategoryId),
     ## Force message to be unapproved
-    "approved" : $util.dynamodb.toDynamoDBJson(false)
+    "approved" : $util.dynamodb.toDynamoDBJson(false),
+    ## Usual ammplify defaults
+    "createdAt": $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+    "updatedAt" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+    "__typename" : $util.dynamodb.toDynamoDBJson("Message")
   },
   "condition": $util.toJson($condition)
 }
