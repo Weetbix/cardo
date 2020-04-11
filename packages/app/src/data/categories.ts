@@ -1,21 +1,35 @@
 import { ImageSourcePropType } from "react-native";
+import { differenceInDays } from "date-fns";
+import { sortBy } from "lodash";
 
 export type Category = {
   id: string;
   name: string;
   image: ImageSourcePropType;
+  date?: {
+    day: number;
+    month: number;
+  };
 };
 
-export const CATEGORIES: Array<Category> = [
+const UNSORTED_CATEGORIES: Array<Category> = [
   {
     name: "Mothers Day",
     id: "9c7ed5cd-b95a-4f40-b2cc-8828adbb59d3",
     image: require("./images/icon-mothersday.png"),
+    date: {
+      day: 10,
+      month: 5,
+    },
   },
   {
     name: "Easter",
     id: "2339482e-97c2-460e-b0c7-aaefe6454e02",
     image: require("./images/icon-easter.png"),
+    date: {
+      day: 12,
+      month: 4,
+    },
   },
   {
     name: "Birthday",
@@ -46,6 +60,10 @@ export const CATEGORIES: Array<Category> = [
     name: "Fathers Day",
     id: "be663f26-bdfe-4545-9919-e2af7ed21241",
     image: require("./images/icon-fathersday.png"),
+    date: {
+      day: 21,
+      month: 5,
+    },
   },
   {
     name: "Births",
@@ -61,6 +79,10 @@ export const CATEGORIES: Array<Category> = [
     name: "Christmas",
     id: "f4ca5ff3-cffc-4c94-865e-073812844270",
     image: require("./images/icon-christmas.png"),
+    date: {
+      day: 25,
+      month: 12,
+    },
   },
   {
     name: "Last day",
@@ -76,5 +98,48 @@ export const CATEGORIES: Array<Category> = [
     name: "Valentines",
     id: "b7bc4d76-ab7f-456a-8a8f-bd1f453637c5",
     image: require("./images/icon-valentines.png"),
+    date: {
+      day: 14,
+      month: 2,
+    },
   },
 ];
+
+// Gets the time to the event in days, but only if
+// its with in 2 weeks (14 days)
+const getTimeToEvent = (category: Category) => {
+  if (category.date) {
+    const year = new Date().getFullYear();
+
+    console.log(category.name);
+    console.log(
+      differenceInDays(
+        new Date(),
+        new Date(year, category.date?.month - 1, category.date?.day)
+      )
+    );
+
+    const smallest = Math.min(
+      Math.abs(
+        differenceInDays(
+          new Date(),
+          new Date(year, category.date?.month - 1, category.date?.day)
+        )
+      ),
+      Math.abs(
+        differenceInDays(
+          new Date(),
+          new Date(year - 1, category.date?.month - 1, category.date?.day)
+        )
+      )
+    );
+    return smallest > 14 ? 14 : smallest;
+  }
+  return 14;
+};
+
+// sort categories by how close they are to the current date, only caring
+// if they are in the next or previous 12 weeks.
+export const CATEGORIES = sortBy(UNSORTED_CATEGORIES, (category) =>
+  getTimeToEvent(category)
+);
