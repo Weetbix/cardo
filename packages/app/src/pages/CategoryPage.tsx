@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   },
   image: {
     marginTop: 60,
-    borderRadius: 100,
   },
   suggestion: {
     color: "#7DC6ED",
