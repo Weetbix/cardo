@@ -3,12 +3,14 @@ import React, {
   useState,
   useEffect,
   useLayoutEffect,
+  useMemo,
 } from "react";
 import { StyleSheet, Text, Image, ActivityIndicator, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
 import API from "@aws-amplify/api";
 import { RouteProp } from "@react-navigation/native";
+import { shuffle } from "lodash";
 import { isFilled } from "ts-is-present";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
 import { NavStackParamList } from "../types";
@@ -57,7 +59,11 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   } = route;
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [message, setMessage] = useState<Message | null>(null);
+  const [messageIndex, setMessageIndex] = useState(0);
+  const message = useMemo(
+    () => (messages.length ? messages[messageIndex] : null),
+    [messageIndex, messages]
+  );
 
   // add the report button to the top bar
   useLayoutEffect(() => {
@@ -100,19 +106,28 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
           .filter(isFilled)
           .map((item) => ({ text: item.message, id: item.id }));
 
-        setMessages(fetchedMessages);
+        setMessages(shuffle(fetchedMessages));
       }
     }
 
     fetchMessages();
   }, []);
 
-  const pickRandomMessage = () =>
-    setMessage(messages[Math.floor(Math.random() * messages.length)]);
-
-  useEffect(() => {
-    pickRandomMessage();
-  }, [messages]);
+  // Choose the next message, or if at the end, reset and
+  // reshuffle all the messages so we avoid duplicates.
+  const pickRandomMessage = () => {
+    if (messageIndex + 1 > messages.length - 1) {
+      // Always put the current message at the end of the new message
+      // list otherwise we may possibly select it again
+      setMessages([
+        ...shuffle(messages.slice(0, messages.length - 1)),
+        message ? message : messages[messages.length - 1],
+      ]);
+      setMessageIndex(0);
+    } else {
+      setMessageIndex(messageIndex + 1);
+    }
+  };
 
   return (
     <Page centered>
