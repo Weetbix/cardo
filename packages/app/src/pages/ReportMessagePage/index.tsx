@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   subHeader: {
     fontSize: 20,
     fontFamily: "sans-serif-light",
+    color: "#5A5A5A",
     textAlign: "center",
     marginTop: 30,
     marginLeft: 45,
