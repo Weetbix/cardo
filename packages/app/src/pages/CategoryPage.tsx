@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
+    color: "#5A5A5A",
     textAlign: "center",
     marginTop: 50,
     marginBottom: "auto",

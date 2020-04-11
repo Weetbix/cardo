@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
   },
   buttonText: {
-    color: "#848484",
+    color: "#5A5A5A",
     fontSize: 20,
     fontFamily: "sans-serif-light",
   },

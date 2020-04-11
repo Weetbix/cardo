@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 25,
     fontFamily: "sans-serif-light",
+    color: "#5A5A5A",
     textAlign: "center",
     marginTop: 5,
     marginBottom: 25,
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 25,
     fontFamily: "sans-serif-light",
+    color: "#5A5A5A",
   },
 });
 
