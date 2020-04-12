@@ -14,7 +14,7 @@ export type Category = {
 
 const UNSORTED_CATEGORIES: Array<Category> = [
   {
-    name: "Mothers Day",
+    name: "Mother's Day",
     id: "9c7ed5cd-b95a-4f40-b2cc-8828adbb59d3",
     image: require("./images/icon-mothersday.png"),
     date: {
@@ -37,7 +37,7 @@ const UNSORTED_CATEGORIES: Array<Category> = [
     image: require("./images/icon-birthday.png"),
   },
   {
-    name: "Get well soon",
+    name: "Get Well Soon",
     id: "5de7c3b6-8b61-4442-8691-314c2844ed98",
     image: require("./images/icon-getwellsoon.png"),
   },
@@ -52,12 +52,12 @@ const UNSORTED_CATEGORIES: Array<Category> = [
     image: require("./images/icon-anniversary.png"),
   },
   {
-    name: "Weddings",
+    name: "Wedding",
     id: "bcd5f7a8-a047-4075-b75a-5e6f473bd9c3",
     image: require("./images/icon-weddings.png"),
   },
   {
-    name: "Fathers Day",
+    name: "Father's Day",
     id: "be663f26-bdfe-4545-9919-e2af7ed21241",
     image: require("./images/icon-fathersday.png"),
     date: {
@@ -85,7 +85,7 @@ const UNSORTED_CATEGORIES: Array<Category> = [
     },
   },
   {
-    name: "Last day",
+    name: "Last Day",
     id: "62736f5d-ec23-4c9b-a552-ffacabd8e7e0",
     image: require("./images/icon-lastday.png"),
   },
