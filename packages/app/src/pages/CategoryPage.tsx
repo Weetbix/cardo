@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     fontFamily: "sans-serif-light",
     color: "#5A5A5A",
     textAlign: "center",
+    marginLeft: 10,
+    marginRight: 10,
   },
   image: {
     marginTop: 60,
