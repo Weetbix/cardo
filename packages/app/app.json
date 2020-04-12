@@ -9,6 +9,9 @@
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": ["ios", "android"],
-    "assetBundlePatterns": ["src/*"]
+    "assetBundlePatterns": ["src/*", "assets/*"],
+    "splash": {
+      "image": "./assets/splash.png"
+    }
   }
 }
