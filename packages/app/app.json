@@ -6,11 +6,15 @@
     "description": "Cardo helps you write heartfelt messages to friends and family by providing you with examples to expand upon.",
     "slug": "cardo",
     "privacy": "unlisted",
-    "sdkVersion": "36.0.0",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": ["android"],
-    "assetBundlePatterns": ["src/*", "assets/*"],
+    "platforms": [
+      "android"
+    ],
+    "assetBundlePatterns": [
+      "src/*",
+      "assets/*"
+    ],
     "primaryColor": "#FFFFFF",
     "icon": "./assets/icon.png",
     "splash": {
