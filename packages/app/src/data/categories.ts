@@ -110,16 +110,7 @@ const UNSORTED_CATEGORIES: Array<Category> = [
 const getTimeToEvent = (category: Category) => {
   if (category.date) {
     const year = new Date().getFullYear();
-
-    console.log(category.name);
-    console.log(
-      differenceInDays(
-        new Date(),
-        new Date(year, category.date?.month - 1, category.date?.day)
-      )
-    );
-
-    const smallest = Math.min(
+    const absoluteTimeToDate = Math.min(
       Math.abs(
         differenceInDays(
           new Date(),
@@ -133,7 +124,7 @@ const getTimeToEvent = (category: Category) => {
         )
       )
     );
-    return smallest > 14 ? 14 : smallest;
+    return absoluteTimeToDate > 14 ? 14 : absoluteTimeToDate;
   }
   return 14;
 };
