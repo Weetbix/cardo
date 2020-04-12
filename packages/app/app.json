@@ -10,8 +10,14 @@
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": ["ios", "android"],
     "assetBundlePatterns": ["src/*", "assets/*"],
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-adaptive-foreground.png"
+      }
     }
   }
 }
