@@ -1,23 +1,30 @@
 {
-  "name": "app",
-  "displayName": "app",
+  "name": "Cardo",
+  "displayName": "Cardo",
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "Cardo",
+    "description": "Cardo helps you write heartfelt messages to friends and family by providing you with examples to expand upon.",
+    "slug": "cardo",
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": ["ios", "android"],
+    "platforms": ["android"],
     "assetBundlePatterns": ["src/*", "assets/*"],
+    "primaryColor": "#FFFFFF",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png"
     },
     "android": {
+      "package": "com.johnhannagan.cardo",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-adaptive-foreground.png"
-      }
+      },
+      "permissions": []
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content"
     }
   }
 }
