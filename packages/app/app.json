@@ -8,13 +8,8 @@
     "privacy": "unlisted",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "android"
-    ],
-    "assetBundlePatterns": [
-      "src/*",
-      "assets/*"
-    ],
+    "platforms": ["android"],
+    "assetBundlePatterns": ["src/**/*.png", "src/data/images/*", "assets/*"],
     "primaryColor": "#FFFFFF",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,13 +17,15 @@
     },
     "android": {
       "package": "com.johnhannagan.cardo",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-adaptive-foreground.png"
       },
       "permissions": []
     },
     "androidStatusBar": {
-      "barStyle": "light-content"
+      "barStyle": "dark-content",
+      "backgroundColor": "#FFFFFF"
     }
   }
 }
