@@ -1,4 +1,4 @@
-# Welcome
+# Cardo
 
 Cardo helps you write meaningful and impactful messages on cards to your friends, family and loves ones. With Cardo, you'll never struggle to find the perfect way to say Happy Birthday or Merry Christmas. Pick from over 10 different categories of messages, and explore until you find the perfect one for your card.
 
