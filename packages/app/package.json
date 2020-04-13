@@ -6,7 +6,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build": "expo build:android -t app-bundle"
   },
   "dependencies": {
     "@cardo/backend": "1.0.0",
