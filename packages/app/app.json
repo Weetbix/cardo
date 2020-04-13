@@ -6,7 +6,7 @@
     "description": "Cardo helps you write heartfelt messages to friends and family by providing you with examples to expand upon.",
     "slug": "cardo",
     "privacy": "unlisted",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": ["android"],
     "assetBundlePatterns": ["src/**/*.png", "src/data/images/*", "assets/*"],
@@ -17,7 +17,7 @@
     },
     "android": {
       "package": "com.johnhannagan.cardo",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-adaptive-foreground.png"
       },
