@@ -22,7 +22,7 @@
     "expo-constants": "~9.0.0",
     "lodash": "^4.17.15",
     "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react-dom": "16.13.1",
     "react-native": "0.61.4",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-reanimated": "~1.7.0",
