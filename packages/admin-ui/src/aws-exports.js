@@ -1,0 +1,1 @@
+./app/aws-exports.js
