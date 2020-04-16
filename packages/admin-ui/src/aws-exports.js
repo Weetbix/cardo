@@ -1,1 +1,1 @@
-./app/aws-exports.js
+../../app/aws-exports.js
