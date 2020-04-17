@@ -2,7 +2,9 @@ import React, { FunctionComponent } from "react";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+import LibraryAdd from "@material-ui/icons/LibraryAdd";
+import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import ExitIcon from "@material-ui/icons/ExitToApp";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -44,9 +46,22 @@ const Sidebar: FunctionComponent<{
     <List>
       <ListItem button>
         <ListItemIcon>
-          <InboxIcon />
+          <LibraryAdd />
         </ListItemIcon>
         <ListItemText primary="Approvals" />
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <LibraryBooks />
+        </ListItemIcon>
+        <ListItemText primary="All Messages" />
+      </ListItem>
+      <Divider />
+      <ListItem button>
+        <ListItemIcon>
+          <ExitIcon />
+        </ListItemIcon>
+        <ListItemText primary="Log Out" />
       </ListItem>
     </List>,
   ];

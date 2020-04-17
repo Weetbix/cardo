@@ -57,4 +57,4 @@ const App: FunctionComponent<{}> = () => {
   );
 };
 
-export default withAuthenticator(App, true);
+export default withAuthenticator(App, false);
