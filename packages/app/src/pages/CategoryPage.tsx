@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
   },
   image: {
     marginTop: 60,
+    maxHeight: "30%",
+    resizeMode: "contain",
   },
   suggestion: {
     color: "#7DC6ED",
