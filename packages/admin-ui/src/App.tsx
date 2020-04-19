@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    appBarSpacer: theme.mixins.toolbar,
   })
 );
 
@@ -84,7 +85,7 @@ const App: FunctionComponent<{}> = () => {
         <Switch>
           <main className={classes.content}>
             <AppBar header="Approvals" onToggleDrawer={handleDrawerToggle} />
-
+            <div className={classes.appBarSpacer} />
             <Route exact path="/">
               <Redirect to="/approvals" />
             </Route>
