@@ -5,7 +5,13 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from "react";
-import { StyleSheet, Text, Image, ActivityIndicator, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  ActivityIndicator,
+  ScrollView,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
 import API from "@aws-amplify/api";
@@ -134,14 +140,17 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
   return (
     <Page centered>
       <Image style={styles.image} source={category.image} />
-      <View style={styles.messageContent}>
+      <ScrollView style={styles.messageContent}>
         {message ? (
           <Text style={styles.message}>{message.text}</Text>
         ) : (
           <ActivityIndicator size="large" color="#DDDDDD" />
         )}
-      </View>
-      <Button onPress={pickRandomMessage} style={{ marginBottom: 25 }}>
+      </ScrollView>
+      <Button
+        onPress={pickRandomMessage}
+        style={{ marginBottom: 25, marginTop: 25 }}
+      >
         Next
       </Button>
       <Text
