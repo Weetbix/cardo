@@ -29,7 +29,7 @@ Amplify.configure(amplifyConfig);
 
 const styles = StyleSheet.create({
   messageContent: {
-    marginTop: 50,
+    marginTop: "10%",
     marginBottom: "auto",
   },
   message: {
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   image: {
-    marginTop: 60,
-    maxHeight: "30%",
+    marginTop: "10%",
+    maxHeight: "20%",
     resizeMode: "contain",
   },
   suggestion: {
