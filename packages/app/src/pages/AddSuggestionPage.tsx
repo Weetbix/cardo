@@ -41,9 +41,11 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
   } = route;
 
   const [suggestion, setSuggestion] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitSuggestion = async () => {
     try {
+      setIsLoading(true);
       await API.graphql({
         query: mutations.submitMessage,
         variables: {
@@ -52,6 +54,7 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
         },
       });
 
+      // Clear the suggestion in case we go back to this page
       setSuggestion("");
       navigation.navigate("splash", {
         title: category.name,
@@ -61,6 +64,7 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
     } catch (error) {
       navigation.navigate("error");
     }
+    setIsLoading(false);
   };
 
   return (
@@ -74,6 +78,7 @@ const SuggestionPage: FunctionComponent<Props> = ({ route, navigation }) => {
         editable
       />
       <Button
+        disabled={isLoading}
         onPress={onSubmitSuggestion}
         style={{ marginTop: 25, marginBottom: 5 }}
       >

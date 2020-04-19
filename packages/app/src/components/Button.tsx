@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 6,
   },
+  buttonDisabled: {
+    // match defaults for touchable opacity
+    opacity: 0.2,
+  },
   buttonText: {
     color: "#5A5A5A",
     fontSize: 20,
@@ -33,10 +37,15 @@ const styles = StyleSheet.create({
 
 const Button: FunctionComponent<{
   onPress: () => void;
+  disabled?: boolean;
   style?: StyleProp<ViewStyle>;
-}> = ({ onPress, children, style }) => {
+}> = ({ onPress, disabled, children, style }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+    <TouchableOpacity
+      disabled={disabled}
+      onPress={onPress}
+      style={[styles.button, disabled && styles.buttonDisabled, style]}
+    >
       <Text style={styles.buttonText}>{children}</Text>
     </TouchableOpacity>
   );

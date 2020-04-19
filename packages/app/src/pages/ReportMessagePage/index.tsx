@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import API from "@aws-amplify/api";
@@ -42,8 +42,11 @@ type Props = {
 };
 
 const ReportMessagePage: FunctionComponent<Props> = ({ route, navigation }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmitReport = async (reason: ReportReason) => {
     try {
+      setIsLoading(true);
       await API.graphql({
         query: mutations.createReport,
         variables: {
@@ -62,6 +65,7 @@ const ReportMessagePage: FunctionComponent<Props> = ({ route, navigation }) => {
     } catch (error) {
       navigation.navigate("error");
     }
+    setIsLoading(false);
   };
 
   return (
@@ -74,18 +78,23 @@ const ReportMessagePage: FunctionComponent<Props> = ({ route, navigation }) => {
       </View>
       <View style={styles.centerContent}>
         <Button
+          disabled={isLoading}
           style={styles.button}
           onPress={() => onSubmitReport(ReportReason.SPAM)}
         >
           It's spam
         </Button>
         <Button
+          disabled={isLoading}
           style={styles.button}
           onPress={() => onSubmitReport(ReportReason.INAPPROPRIATE)}
         >
           It's inappropriate
         </Button>
-        <Button onPress={() => onSubmitReport(ReportReason.OTHER)}>
+        <Button
+          disabled={isLoading}
+          onPress={() => onSubmitReport(ReportReason.OTHER)}
+        >
           Other
         </Button>
       </View>
