@@ -9,6 +9,18 @@ Parameters:
     Type: String
   
   
+  
+  
+  functioncardoAuthPreSignupArn: 
+    Type: String
+    Default: functioncardoAuthPreSignupArn
+  
+  functioncardoAuthPreSignupName: 
+    Type: String
+    Default: functioncardoAuthPreSignupName
+  
+  
+  
 
     
   identityPoolName:
@@ -166,6 +178,19 @@ Resources:
         
       
       
+      LambdaConfig:
+        
+        
+        
+        
+        
+        
+        
+          PreSignUp: !Ref functioncardoAuthPreSignupArn
+        
+        
+        
+      
       
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
       
@@ -196,6 +221,15 @@ Resources:
     
     
   
+  
+  UserPoolPreSignupLambdaInvokePermission: 
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties: 
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functioncardoAuthPreSignupName
+      SourceArn: !GetAtt UserPool.Arn
   
    
     

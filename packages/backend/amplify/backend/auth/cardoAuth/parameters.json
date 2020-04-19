@@ -39,7 +39,7 @@
     ],
     "userPoolGroups": true,
     "adminQueries": false,
-    "triggers": "{}",
+    "triggers": "{\"PreSignup\":[\"custom\"]}",
     "hostedUI": false,
     "userPoolGroupList": [
         "cardoUserPoolGroup"
@@ -60,5 +60,15 @@
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "cardoAuthPreSignup",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ]
 }
