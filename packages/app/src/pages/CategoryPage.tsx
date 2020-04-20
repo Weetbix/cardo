@@ -11,6 +11,7 @@ import {
   Image,
   ActivityIndicator,
   ScrollView,
+  Animated,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
@@ -145,6 +146,16 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
     setMessageIndex(index >= 0 ? index : messages.length - 1);
   };
 
+  // Fade message text in
+  const [fadeText] = useState(new Animated.Value(0));
+  useEffect(() => {
+    fadeText.setValue(0);
+    Animated.timing(fadeText, {
+      toValue: 1,
+      duration: 500,
+    }).start();
+  }, [message]);
+
   return (
     <Page centered>
       <Image style={styles.image} source={category.image} />
@@ -155,9 +166,12 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
       >
         <ScrollView style={styles.messageContent}>
           {message ? (
-            <Text selectable style={styles.message}>
+            <Animated.Text
+              selectable
+              style={[styles.message, { opacity: fadeText }]}
+            >
               {message.text}
-            </Text>
+            </Animated.Text>
           ) : (
             <ActivityIndicator size="large" color="#DDDDDD" />
           )}
