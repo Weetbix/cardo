@@ -14687,6 +14687,11 @@ react-native-screens@~2.2.0:
   dependencies:
     debounce "^1.2.0"
 
+react-native-swipe-gestures@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz#a172cb0f3e7478ccd681fd36b8bfbcdd098bde7c"
+  integrity sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw==
+
 react-native-unimodules@~0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/react-native-unimodules/-/react-native-unimodules-0.8.1.tgz#c556c97d334d68786b1c9678ceea72e2e3e3e115"

@@ -16,6 +16,7 @@ import { Feather } from "@expo/vector-icons";
 import Amplify from "aws-amplify";
 import API from "@aws-amplify/api";
 import { RouteProp } from "@react-navigation/native";
+import GestureRecognizer from "react-native-swipe-gestures";
 import { shuffle } from "lodash";
 import { isFilled } from "ts-is-present";
 import { GetCategoryQuery } from "@cardo/backend/src/API";
@@ -125,7 +126,7 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
 
   // Choose the next message, or if at the end, reset and
   // reshuffle all the messages so we avoid duplicates.
-  const pickRandomMessage = () => {
+  const nextMessage = () => {
     if (messageIndex + 1 > messages.length - 1) {
       // Always put the current message at the end of the new message
       // list otherwise we may possibly select it again
@@ -139,22 +140,30 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
     }
   };
 
+  const previousMessage = () => {
+    const index = messageIndex - 1;
+    setMessageIndex(index >= 0 ? index : messages.length - 1);
+  };
+
   return (
     <Page centered>
       <Image style={styles.image} source={category.image} />
-      <ScrollView style={styles.messageContent}>
-        {message ? (
-          <Text selectable style={styles.message}>
-            {message.text}
-          </Text>
-        ) : (
-          <ActivityIndicator size="large" color="#DDDDDD" />
-        )}
-      </ScrollView>
-      <Button
-        onPress={pickRandomMessage}
-        style={{ marginBottom: 25, marginTop: 25 }}
+      <GestureRecognizer
+        style={{ flex: 1 }}
+        onSwipeRight={previousMessage}
+        onSwipeLeft={nextMessage}
       >
+        <ScrollView style={styles.messageContent}>
+          {message ? (
+            <Text selectable style={styles.message}>
+              {message.text}
+            </Text>
+          ) : (
+            <ActivityIndicator size="large" color="#DDDDDD" />
+          )}
+        </ScrollView>
+      </GestureRecognizer>
+      <Button onPress={nextMessage} style={{ marginBottom: 25, marginTop: 25 }}>
         Next
       </Button>
       <Text
