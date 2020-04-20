@@ -7,13 +7,19 @@ import {
   Checkbox,
   ListItemText,
   List,
+  Button,
 } from "@material-ui/core";
 import { ListMessagesQuery } from "@cardo/backend/src/API";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    demo: {
+    list: {
       backgroundColor: theme.palette.background.paper,
+    },
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
     },
   })
 );
@@ -38,22 +44,28 @@ const ApprovalsPage: FunctionComponent<{}> = () => {
   if (error) return <div>`Error! ${error}`</div>;
 
   return (
-    <div className={classes.demo}>
-      <List>
-        {data?.listMessages?.items.map((message) => {
-          return (
-            <ListItem key={message?.id} dense button>
-              <ListItemIcon>
-                <Checkbox edge="start" disableRipple color="primary" />
-              </ListItemIcon>
-              <ListItemText
-                primary={message?.message}
-                secondary={message?.category.name}
-              />
-            </ListItem>
-          );
-        })}
-      </List>
+    <div className={classes.root}>
+      <div className={classes.list}>
+        <List>
+          {data?.listMessages?.items.map((message) => {
+            return (
+              <ListItem key={message?.id} dense button>
+                <ListItemIcon>
+                  <Checkbox edge="start" disableRipple color="primary" />
+                </ListItemIcon>
+                <ListItemText
+                  primary={message?.message}
+                  secondary={message?.category.name}
+                />
+              </ListItem>
+            );
+          })}
+        </List>
+      </div>
+      <Button variant="contained" color="primary">
+        Approve
+      </Button>
+      <Button variant="contained">Remove</Button>
     </div>
   );
 };
