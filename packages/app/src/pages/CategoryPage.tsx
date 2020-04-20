@@ -144,7 +144,9 @@ const CategoryPage: FunctionComponent<Props> = ({ route, navigation }) => {
       <Image style={styles.image} source={category.image} />
       <ScrollView style={styles.messageContent}>
         {message ? (
-          <Text style={styles.message}>{message.text}</Text>
+          <Text selectable style={styles.message}>
+            {message.text}
+          </Text>
         ) : (
           <ActivityIndicator size="large" color="#DDDDDD" />
         )}
