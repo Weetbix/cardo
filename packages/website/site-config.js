@@ -1,7 +1,7 @@
 module.exports = {
   // App Info
-  // appstore_link         : "https://imedadel.me",                                  // Enter App Store URL.
-  playstore_link: "https://imedadel.me", // Enter Google Play Store URL.
+  playstore_link:
+    "https://play.google.com/store/apps/details?id=com.johnhannagan.cardo", // Enter Google Play Store URL.
   google_analytics_ID: "UA-47311644-5", // Enter Google Analytics ID or ""
   // presskit_download_link: "https://imedadel.me", // Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file).
   video_or_screenshot: "screenshot", // "screenshot" or "video"
@@ -28,76 +28,59 @@ module.exports = {
   // Features List
   features: [
     {
-      title: "GitHub Pages GatsbyJS Starter",
+      title: "Message Library",
       description:
-        "Designed for GitHub Pages and Netlify. Fork. Edit site-config.js. Upload screenshot/video. Push to gh-pages branch. Voilà!",
-      fontawesome_icon_name: "magic",
+        "Hundreds and hundreds of messages to choose from, so you can find the perfect words for your greeting cards!",
+      fontawesome_icon_name: "clone",
     },
     {
-      title: "iPhone Device Preview",
+      title: "Mulitple Categories",
       description:
-        "Preview your app in the context of an iPhone device. Five different device colors included.",
-      fontawesome_icon_name: "mobile",
+        "Over 15 different categories of card message means you wont have to worry about finding the right occation.",
+      fontawesome_icon_name: "layer-group",
     },
     {
-      title: "Video Support",
+      title: "Every Occation",
       description:
-        "Preview app video on the iPhone device simply by placing your video files in the videos folder.",
-      fontawesome_icon_name: "play-circle",
+        "Whether its Christmas, Easter, Valentines Day or a Birthday - Cardo has ideas for your greeting cards!",
+      fontawesome_icon_name: "gift",
     },
     {
-      title: "Optimized Performance",
+      title: "Suggestions",
       description:
-        "No need to worry about page performance or optimizing images and videos. Everything is already configured for the best performance possible!",
-      fontawesome_icon_name: "sync",
+        "Give  back to the community by suggesting messages for other people, they'll be reviewed and approved!",
+      fontawesome_icon_name: "folder-plus",
     },
     {
-      title: "Easy to Tweak",
+      title: "Moderation",
       description:
-        "Tweak accent color, images, icons and transparency via the site-config.js file. No HTML/CSS needed.",
-      fontawesome_icon_name: "adjust",
+        "All Cardo's content is moderated and reviewable, dont like a message? flag it and we'll review it!",
+      fontawesome_icon_name: "check-circle",
     },
     {
-      title: "Feature List",
+      title: "Open Source",
       description:
-        "Add features (like this one) to your site via the site-config.js file. No HTML/CSS needed.",
-      fontawesome_icon_name: "star",
-    },
-    {
-      title: "Deploy to Netlify",
-      description: "Easily deploy your GatsbyJS landing page to Netlify.",
-      fontawesome_icon_name: "arrow-alt-circle-down",
-    },
-    {
-      title: "Social Links",
-      description:
-        "Easily add social media accounts and contact info in the footer via the site-config.js file. No HTML/CSS needed.",
-      fontawesome_icon_name: "link",
-    },
-    {
-      title: "FontAwesome Support",
-      description:
-        "Pick custom Font Awesome icons for the feature list via the site-config.js file. No HTML/CSS needed.",
-      fontawesome_icon_name: "info-circle",
+        "Cardo is completely open source and released under the MIT license!",
+      fontawesome_icon_name: "code-branch",
     },
   ],
   header_background: "rgba(0, 0, 0, 0.1)",
   topbar_title_color: "#ffffff",
   cover_overlay_color_rgba: "rgba(54, 59, 61, 0.3)",
   device_color: "black", // Set to "black", "blue", "coral", "white", or "yellow"
-  body_background_color: "ffffff",
+  body_background_color: "#3F3D56",
   primary_text_color: "#000",
   content_width: "1170px",
   font: `"Helvetica Neue", sans-serif`,
-  link_color: "#1d63ea",
-  app_title_color: "#ffffff",
-  app_price_color: "#ffffff",
-  app_description_color: "#ffffff",
-  feature_title_color: "#000000",
-  feature_text_color: "#666666",
-  feature_icons_foreground_color: "#1d63ea",
+  link_color: "#D1E3FF",
+  app_title_color: "#000",
+  app_price_color: "#000",
+  app_description_color: "#000",
+  feature_title_color: "#fff",
+  feature_text_color: "#fff",
+  feature_icons_foreground_color: "#3F3D56",
   feature_icons_background_color: "#e6e6e6",
-  social_icons_foreground_color: "#666666",
+  social_icons_foreground_color: "#3F3D56",
   social_icons_background_color: "#e6e6e6",
-  footer_text_color: "#666666",
+  footer_text_color: "#fff",
 }

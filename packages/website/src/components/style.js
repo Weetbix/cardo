@@ -54,11 +54,10 @@ export default createGlobalStyle`
 
   .imageWrapper {
     // Sets the background image in the header area
-    height: 714px;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
-    border-radius: 0px 0px 40px 40px;
   }
 
   .headerImage {
