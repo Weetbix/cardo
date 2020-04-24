@@ -16,9 +16,7 @@ const IndexPage = ({ data }) => (
     <div
       className="imageWrapper"
       style={{
-        backgroundImage: `linear-gradient(${configs.cover_overlay_color_rgba},${
-          configs.cover_overlay_color_rgba
-        }),url(${data.headerImage.childImageSharp.fluid.src})`,
+        backgroundImage: `linear-gradient(${configs.cover_overlay_color_rgba},${configs.cover_overlay_color_rgba}),url(${data.headerImage.childImageSharp.fluid.src})`,
       }}
     >
       <div className="headerBackground">
@@ -59,7 +57,7 @@ const IndexPage = ({ data }) => (
             style={{
               backgroundImage: `url(${
                 configs.device_color === "black"
-                  ? data.iphonePreviewBlack.childImageSharp.fluid.src
+                  ? data.iphoneScreen.childImageSharp.fluid.src
                   : configs.device_color === "blue"
                   ? data.iphonePreviewBlue.childImageSharp.fluid.src
                   : configs.device_color === "coral"
@@ -109,6 +107,7 @@ const IndexPage = ({ data }) => (
               <Img
                 fluid={data.iphoneScreen.childImageSharp.fluid}
                 className="iphoneScreen"
+                style={{ opacity: 0 }}
               />
             )}
           </div>
@@ -166,9 +165,7 @@ const IndexPage = ({ data }) => (
                       <span className="fa-stack fa-1x">
                         <i className="iconBack fas fa-circle fa-stack-2x" />
                         <i
-                          className={`iconTop fas fa-${
-                            feature.fontawesome_icon_name
-                          } fa-stack-1x`}
+                          className={`iconTop fas fa-${feature.fontawesome_icon_name} fa-stack-1x`}
                         />
                       </span>
                     </div>
@@ -285,7 +282,7 @@ export const query = graphql`
     }
     iphoneScreen: file(relativePath: { glob: "screenshot/*.{png,jpg}" }) {
       childImageSharp {
-        fluid(maxWidth: 350) {
+        fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -313,7 +310,7 @@ export const query = graphql`
     }
     iphonePreviewBlack: file(relativePath: { eq: "black.png" }) {
       childImageSharp {
-        fluid(maxWidth: 400) {
+        fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }

@@ -308,7 +308,7 @@ export default createGlobalStyle`
 
   .iphonePreview {
     grid-area: p;
-    background-size: 400px auto;
+    background-size: contain;
     background-repeat: no-repeat;
     margin-top: 68px;
   }
@@ -337,7 +337,9 @@ export default createGlobalStyle`
 
   @media only screen and (max-width: 1070px) {
     .iphonePreview {
-      background-size: 370px auto;
+      /* background-size: 370px auto;
+       */
+
     }
 
     .iphoneScreen {
@@ -362,11 +364,11 @@ export default createGlobalStyle`
   @media only screen and (max-width: 992px) {
     .iphonePreview {
       display: flex;
-      background-size: 260px auto;
       background-position: center 0;
-      margin-top: 47px;
+      margin-top: 140px;
       justify-content: center;
       padding-bottom: 75px;
+
     }
 
     .iphoneScreen {
@@ -459,7 +461,7 @@ export default createGlobalStyle`
       flex-grow: 1;
       flex-direction: row;
       flex-wrap: wrap;
-      margin-top: 11px;
+      margin-top: 60px;
     }
 
     .feature {
