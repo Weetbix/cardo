@@ -17,6 +17,7 @@ module.exports = {
     "social",
     "easter",
     "christmas",
+    "hallmark",
   ],
 
   // Personal Info
