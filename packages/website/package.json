@@ -1,8 +1,8 @@
 {
-  "name": "automatic-gatsbyjs-app-landing-page",
-  "description": "Automatically generate iOS app landing page using GatsbyJS",
+  "name": "@cardo/website",
+  "description": "Cardo lading page for cardo.app",
   "version": "1.0.0",
-  "author": "Imed Adel <aadelimed@gmail.com>",
+  "author": "John Hannagan",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.27",
@@ -31,9 +31,6 @@
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -47,12 +44,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged --pattern src/**/*.{js,jsx}"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
