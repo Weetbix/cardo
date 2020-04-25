@@ -21,13 +21,13 @@ jobs:
         run: yarn build
         working-directory: ./packages/website
 
-      - name: Percy Visual Regressions
-        uses: percy/snapshot-action@v0.1.1
-        with:
-          build-directory: "packages/website/public"
-          flags: "--ignore-files \"/opt-out/**\""
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      # - name: Percy Visual Regressions
+      #   uses: percy/snapshot-action@v0.1.1
+      #   with:
+      #     build-directory: "packages/website/public"
+      #     flags: "--ignore-files \"/opt-out/**\""
+      #   env:
+      #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
   build-and-deploy:
     runs-on: ubuntu-latest
