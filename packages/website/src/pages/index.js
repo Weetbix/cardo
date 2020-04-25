@@ -42,32 +42,12 @@ const IndexPage = ({ data }) => (
               />
             </clipPath>
           </svg>
-          {configs.video_or_screenshot === "video" && (
-            <div className="videoContainer">
-              <video
-                className="screenvideo"
-                autoPlay="autoplay"
-                controls="controls"
-              >
-                <source
-                  src={data.videoScreen.publicURL}
-                  type={`video/${
-                    data.videoScreen.extension === "mov"
-                      ? `mp4`
-                      : data.videoScreen.extension
-                  }`}
-                />
-              </video>
-            </div>
-          )}
 
-          {configs.video_or_screenshot === "screenshot" && (
-            <Img
-              fluid={data.iphoneScreen.childImageSharp.fluid}
-              className="iphoneScreen"
-              style={{ opacity: 0 }}
-            />
-          )}
+          <Img
+            fluid={data.iphoneScreen.childImageSharp.fluid}
+            className="iphoneScreen"
+            style={{ opacity: 0 }}
+          />
         </div>
         <div className="appInfo">
           <div className="appIconShadow">
@@ -206,7 +186,6 @@ const IndexPage = ({ data }) => (
             )}
           </div>
         </footer>
-        {/*TODO: Add App Store API */}
       </div>
     </div>
   </Layout>
@@ -220,13 +199,6 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 50) {
           ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    appStore: file(relativePath: { eq: "appstore.png" }) {
-      childImageSharp {
-        fixed(width: 220) {
-          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -244,13 +216,6 @@ export const query = graphql`
         }
       }
     }
-    videoScreen: file(
-      extension: { ne: "txt" }
-      relativePath: { glob: "videos/*" }
-    ) {
-      publicURL
-      extension
-    }
     appIconLarge: file(relativePath: { eq: "icon.png" }) {
       childImageSharp {
         fluid(maxWidth: 120) {
@@ -261,41 +226,6 @@ export const query = graphql`
     headerImage: file(relativePath: { eq: "headerimage.png" }) {
       childImageSharp {
         fluid(maxHeight: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iphonePreviewBlack: file(relativePath: { eq: "black.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iphonePreviewBlue: file(relativePath: { eq: "blue.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iphonePreviewCoral: file(relativePath: { eq: "coral.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iphonePreviewWhite: file(relativePath: { eq: "white.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    iphonePreviewYellow: file(relativePath: { eq: "yellow.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
         }
       }
