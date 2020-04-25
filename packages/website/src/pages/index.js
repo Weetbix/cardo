@@ -187,6 +187,13 @@ const IndexPage = ({ data }) => (
                 </span>
               </a>
             )}
+
+            <a href="/privacy-policy/" aria-label="Privacy Policy">
+              <span className="fa-stack fa-1x">
+                <i className="socialIconBack fas fa-circle fa-stack-2x" />
+                <i className="socialIconTop fas fa-lock fa-stack-1x" />
+              </span>
+            </a>
           </div>
         </footer>
       </div>
