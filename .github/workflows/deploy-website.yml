@@ -44,11 +44,11 @@ jobs:
 
       - name: Build
         run: yarn build
-          working-directory: packages/website
+        working-directory: ./packages/website
 
       - name: Deploy
         run: yarn deploy
-          working-directory: packages/website
+        working-directory: ./packages/website
           
         env:
           CI: true

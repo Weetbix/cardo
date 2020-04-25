@@ -18,7 +18,7 @@ jobs:
 
       - name: Build
         run: yarn build
-          working-directory: packages/website
+        working-directory: ./packages/website
 
       - name: Percy Visual Regressions
         uses: percy/snapshot-action@v0.1.1
