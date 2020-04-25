@@ -17,6 +17,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: `${__dirname}/src/data`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
@@ -35,8 +43,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: configs.google_analytics_ID
-      }
+        trackingId: configs.google_analytics_ID,
+      },
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
