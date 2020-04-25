@@ -1,0 +1,29 @@
+name: Test Website
+
+on:
+  pull_request:
+    paths:
+      - packages/website/**
+      - yarn.lock
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        working-directory: packages/website
+        run: yarn build
+
+      - name: Percy Visual Regressions
+        uses: percy/snapshot-action@v0.1.1
+        working-directory: packages/website
+        with:
+          build-directory: "public"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
