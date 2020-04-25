@@ -2,13 +2,12 @@ module.exports = {
   playstore_link:
     "https://play.google.com/store/apps/details?id=com.johnhannagan.cardo",
   google_analytics_ID: "",
-  video_or_screenshot: "screenshot", // "screenshot" or "video"
   app_url: "https://cardo.app", // Domain of your website without path_prefix.
   path_prefix: "/",
   app_name: "Cardo",
   app_price: "Free",
   app_description:
-    "Write meaningful and impactful messages on cards to your friends, and loves ones.",
+    "Write meaningful and impactful messages on greeting cards to your friends, and loves ones.",
   app_keywords: [
     "cards",
     "greeting",
@@ -18,6 +17,29 @@ module.exports = {
     "easter",
     "christmas",
     "hallmark",
+    "valentines",
+    "birthday",
+    "last day",
+    "get well soon",
+    "well",
+    "sick",
+    "anniversary",
+    "wedding",
+    "birth",
+    "sympathy",
+    "ideas",
+    "inspirations",
+    "free",
+    "baby shower",
+    "occasion",
+    "inspiration",
+    "what to write in a card",
+    "card messages",
+    "greeting card messages",
+    "greeting card help",
+    "birthday card help",
+    "funny cards",
+    "funny birthday cards",
   ],
 
   // Personal Info

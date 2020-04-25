@@ -4,9 +4,9 @@ const configs = require("./site-config")
 module.exports = {
   siteMetadata: {
     siteUrl: urljoin(configs.app_url, configs.path_prefix),
-    title: configs.app_name,
+    title: "Cardo: Writing meaningful card messages made easy",
     description: configs.app_description,
-    author: configs.twitter_username,
+    author: "John Hannagan",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -48,9 +48,5 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
   ],
 }
