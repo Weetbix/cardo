@@ -9,7 +9,7 @@ module.exports = {
   app_price: "Free",
   app_description:
     "Write meaningful and impactful messages on cards to your friends, and loves ones.",
-  app_keywords: ["automatic", "gatsbyjs", "app", "landing page"],
+  app_keywords: ["cards", "greeting", "card", "messages", "social", "easter"],
 
   // Personal Info
   your_name: "John Hannagan",
