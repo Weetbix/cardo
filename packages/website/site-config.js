@@ -1,12 +1,10 @@
 module.exports = {
-  // App Info
   playstore_link:
-    "https://play.google.com/store/apps/details?id=com.johnhannagan.cardo", // Enter Google Play Store URL.
-  google_analytics_ID: "UA-47311644-5", // Enter Google Analytics ID or ""
-  // presskit_download_link: "https://imedadel.me", // Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file).
+    "https://play.google.com/store/apps/details?id=com.johnhannagan.cardo",
+  google_analytics_ID: "",
   video_or_screenshot: "screenshot", // "screenshot" or "video"
   app_url: "https://cardo.app", // Domain of your website without path_prefix.
-  path_prefix: "/", // Prefixes all links. For cases when deployed to example.github.io/automatic-gatsbyjs-app-landing-page/.
+  path_prefix: "/",
   app_name: "Cardo",
   app_price: "Free",
   app_description:
@@ -18,12 +16,7 @@ module.exports = {
   your_link: "https://johnhannagan.com",
   your_city: "Berlin",
   email_address: "cardo.application@gmail.com",
-  linkedin_username: null,
-  facebook_username: null,
-  // instagram_username: ,
-  // twitter_username: "Imed_Adel",
-  github_username: "ImedAdel",
-  youtube_username: null,
+  github_username: "Weetbix",
 
   // Features List
   features: [
@@ -67,7 +60,6 @@ module.exports = {
   header_background: "rgba(0, 0, 0, 0.1)",
   topbar_title_color: "#ffffff",
   cover_overlay_color_rgba: "rgba(54, 59, 61, 0.3)",
-  device_color: "black", // Set to "black", "blue", "coral", "white", or "yellow"
   body_background_color: "#3F3D56",
   primary_text_color: "#000",
   content_width: "1170px",

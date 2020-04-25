@@ -23,17 +23,7 @@ const IndexPage = ({ data }) => (
         <div
           className="iphonePreview"
           style={{
-            backgroundImage: `url(${
-              configs.device_color === "black"
-                ? data.iphoneScreen.childImageSharp.fluid.src
-                : configs.device_color === "blue"
-                ? data.iphonePreviewBlue.childImageSharp.fluid.src
-                : configs.device_color === "coral"
-                ? data.iphonePreviewCoral.childImageSharp.fluid.src
-                : configs.device_color === "white"
-                ? data.iphonePreviewWhite.childImageSharp.fluid.src
-                : data.iphonePreviewYellow.childImageSharp.fluid.src
-            })`,
+            backgroundImage: `url(${data.iphoneScreen.childImageSharp.fluid.src})`,
           }}
         >
           <svg
