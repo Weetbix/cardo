@@ -2,7 +2,7 @@
 
 Cardo is a mobile application that helps you find the perfect words for greeting cards.
 
-Check it out here on the [Google Play Store!](https://play.google.com/store/apps/details?id=com.johnhannagan.cardo).
+Check it out the website [here](https://cardo.app), or the app here on the [Google Play Store!](https://play.google.com/store/apps/details?id=com.johnhannagan.cardo).
 
 This repository contains the React Native app and the AWS Amplify backend.
 
