@@ -7,13 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
 import GlobalStyle from "./style.js"
+import CookieBanner from "./cookiebanner"
 
 const Layout = ({ children }) => (
   <>
     <GlobalStyle />
     {children}
+    <CookieBanner />
   </>
 )
 

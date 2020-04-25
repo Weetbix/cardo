@@ -44,6 +44,7 @@ const Content = styled.div`
 
   img {
     width: 100vw;
+    margin-bottom: -1px;
     background-color: transparent;
   }
 

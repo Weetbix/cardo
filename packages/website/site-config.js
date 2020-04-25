@@ -1,13 +1,14 @@
 module.exports = {
   playstore_link:
     "https://play.google.com/store/apps/details?id=com.johnhannagan.cardo",
-  google_analytics_ID: "",
+  tracking_cookie_name: "gdpr-analytics-enabled",
+  google_analytics_ID: "UA-6922141-4",
   app_url: "https://cardo.app", // Domain of your website without path_prefix.
   path_prefix: "/",
   app_name: "Cardo",
   app_price: "Free",
   app_description:
-    "Write meaningful and impactful messages on greeting cards to your friends, and loves ones.",
+    "Write meaningful and impactful messages on greeting cards to your friends, and loved ones.",
   app_keywords: [
     "cards",
     "greeting",

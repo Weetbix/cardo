@@ -41,9 +41,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-gdpr-tracking",
       options: {
-        trackingId: configs.google_analytics_ID,
+        googleAnalytics: {
+          trackingId: configs.google_analytics_ID,
+          autoStart: false, // <--- default
+          anonymize: true, // <--- default
+          controlCookieName: configs.tracking_cookie_name,
+        },
+        environments: ["production"],
       },
     },
     `gatsby-plugin-styled-components`,
