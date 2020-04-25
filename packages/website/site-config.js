@@ -9,7 +9,15 @@ module.exports = {
   app_price: "Free",
   app_description:
     "Write meaningful and impactful messages on cards to your friends, and loves ones.",
-  app_keywords: ["cards", "greeting", "card", "messages", "social", "easter"],
+  app_keywords: [
+    "cards",
+    "greeting",
+    "card",
+    "messages",
+    "social",
+    "easter",
+    "christmas",
+  ],
 
   // Personal Info
   your_name: "John Hannagan",
