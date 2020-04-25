@@ -1,7 +1,8 @@
 name: Deploy Website
 
 on:
-  pull_request:
+  push:
+    branches: [master]
     paths:
       - packages/website/**
       - yarn.lock
