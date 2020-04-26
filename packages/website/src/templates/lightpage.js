@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import rehypeReact from "rehype-react"
 import Layout from "../components/layout"
+import { OutboundLink } from "gatsby-plugin-gtag"
 import SEO from "../components/seo"
 import lightpagefooter from "../images/lightpagefooter.svg"
 
@@ -54,15 +56,21 @@ const Content = styled.div`
   }
 `
 
+// Replace links with GA compatible links
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: { a: OutboundLink },
+}).Compiler
+
 export default function Template({ data }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, htmlAst } = markdownRemark
   return (
     <Layout>
       <SEO title={frontmatter.title} />
       <Wrapper>
         <Content>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          {renderAst(htmlAst)}
           <img alt="" src={lightpagefooter} />
         </Content>
       </Wrapper>
@@ -72,7 +80,7 @@ export default function Template({ data }) {
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         title
       }
