@@ -197,7 +197,7 @@ export const query = graphql`
     }
     iphoneScreen: file(relativePath: { glob: "screenshot/*.{png,jpg}" }) {
       childImageSharp {
-        fluid(maxWidth: 600) {
+        fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
         }
       }
