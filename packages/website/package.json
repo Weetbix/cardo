@@ -10,7 +10,6 @@
     "gatsby-plugin-gdpr-tracking": "^1.0.8",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-manifest": "^2.0.22",
-    "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.8",
     "gatsby-plugin-sharp": "^2.0.25",
     "gatsby-plugin-sitemap": "^2.0.10",
