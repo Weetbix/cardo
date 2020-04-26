@@ -41,6 +41,8 @@ module.exports = {
     "birthday card help",
     "funny cards",
     "funny birthday cards",
+    "android",
+    "ios",
   ],
 
   // Personal Info
