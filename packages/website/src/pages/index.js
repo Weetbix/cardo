@@ -16,13 +16,13 @@ const IndexPage = ({ data }) => (
       title="Cardo: Free Android app for greeting card messages, ideas and inspiration"
       keywords={configs.app_keywords}
     />
-
-    <div
-      className="imageWrapper"
-      style={{
-        backgroundImage: `url(${data.headerImage.childImageSharp.fluid.src})`,
-      }}
-    >
+    <div className="solidColorWrapper">
+      <div
+        className="imageWrapper"
+        style={{
+          backgroundImage: `url(${data.headerImage.childImageSharp.fluid.src})`,
+        }}
+      />
       <div className="container">
         <div
           className="iphonePreview"

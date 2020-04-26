@@ -48,6 +48,13 @@ module.exports = {
     "play store",
     "playstore",
     "appstore",
+    "what to write",
+    "condolence",
+    "condolences",
+    "greeting",
+    "card help",
+    "cardo",
+    "meaningful messages",
   ],
 
   // Personal Info
@@ -99,7 +106,7 @@ module.exports = {
   header_background: "rgba(0, 0, 0, 0.1)",
   topbar_title_color: "#ffffff",
   cover_overlay_color_rgba: "rgba(54, 59, 61, 0.3)",
-  body_background_color: "#3F3D56",
+  body_background_color: "#fff",
   primary_text_color: "#000",
   content_width: "1170px",
   font: `"Helvetica Neue", sans-serif`,

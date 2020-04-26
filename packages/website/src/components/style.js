@@ -12,7 +12,6 @@ export default createGlobalStyle`
     font-size: 2rem;
     background-color: ${configs.body_background_color};
   }
-
   h1 {
     font-size: 3rem;
   }
@@ -25,7 +24,6 @@ export default createGlobalStyle`
     font-size: 2rem;
   }
 
-  // Better font rendering
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -52,12 +50,17 @@ export default createGlobalStyle`
     padding: 0;
   }
 
+  .solidColorWrapper { 
+    background-color: #3F3D56
+  }
+
   .imageWrapper {
-    // Sets the background image in the header area
+    position: absolute;
     height: 100vh;
-    background-repeat: no-repeat;
+    width: 100vw;
     background-size: cover;
     background-position: top;
+    z-index: 1;
   }
 
   .headerImage {
@@ -80,6 +83,7 @@ export default createGlobalStyle`
   }
 
   .container {
+    z-index: -2;
     // Set up the container for the site content
     display: grid;
     margin: auto;
@@ -189,6 +193,7 @@ export default createGlobalStyle`
     flex-wrap: wrap;
     padding-top: 140px;
     align-content: flex-start;
+    z-index: 1;
   }
 
   @media only screen and (max-width: 992px) {
@@ -310,6 +315,7 @@ export default createGlobalStyle`
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: 68px;
+    z-index: 1;
   }
 
   .iphoneScreen {
@@ -403,6 +409,7 @@ export default createGlobalStyle`
     flex-grow: 1;
     flex-wrap: wrap;
     margin-top: 93px;
+    z-index: 1;
   }
 
   .feature {
