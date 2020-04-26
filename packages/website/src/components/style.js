@@ -61,6 +61,7 @@ export default createGlobalStyle`
     background-size: cover;
     background-position: right;
     z-index: 1;
+    background-color: white;
   }
 
   .headerImage {
