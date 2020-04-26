@@ -23,7 +23,7 @@ jobs:
       - name: Percy Visual Regressions
         uses: percy/snapshot-action@v0.1.1
         with:
-          build-directory: "packages/website/public"
+          build-directory: "public"
           working-directory: "packages/website"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
