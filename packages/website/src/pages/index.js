@@ -83,6 +83,7 @@ const IndexPage = ({ data }) => (
             {configs.playstore_link && (
               <OutboundLink
                 className="playStoreLink"
+                aria-label="to the android play store to download the mobile application"
                 href={configs.playstore_link}
               >
                 <Img
@@ -94,6 +95,7 @@ const IndexPage = ({ data }) => (
             {configs.appstore_link && (
               <OutboundLink
                 className="appStoreLink"
+                aria-label="to the ios app store to download the application"
                 href={configs.appstore_link}
               >
                 <Img
