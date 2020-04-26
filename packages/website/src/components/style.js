@@ -262,6 +262,14 @@ export default createGlobalStyle`
     margin-top: 45px;
     flex: 0 1 auto;
     line-height: 1.5;
+
+    @media only screen and (max-width: 528px) {
+      order: -1;
+      margin-top: -100px;
+      margin-bottom: 45px;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
   }
 
   .appDescription {
