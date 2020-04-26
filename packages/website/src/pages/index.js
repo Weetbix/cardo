@@ -164,12 +164,12 @@ const IndexPage = ({ data }) => (
               </OutboundLink>
             )}
 
-            <OutboundLink href="/privacy-policy/" aria-label="Privacy Policy">
+            <a href="/privacy-policy/" aria-label="Privacy Policy">
               <span className="fa-stack fa-1x">
                 <i className="socialIconBack fas fa-circle fa-stack-2x" />
                 <i className="socialIconTop fas fa-lock fa-stack-1x" />
               </span>
-            </OutboundLink>
+            </a>
           </div>
         </footer>
       </div>
