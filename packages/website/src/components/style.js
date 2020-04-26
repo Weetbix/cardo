@@ -59,7 +59,7 @@ export default createGlobalStyle`
     height: 100vh;
     width: 100vw;
     background-size: cover;
-    background-position: top;
+    background-position: right;
     z-index: 1;
   }
 
