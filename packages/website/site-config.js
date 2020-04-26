@@ -43,6 +43,11 @@ module.exports = {
     "funny birthday cards",
     "android",
     "ios",
+    "mobile",
+    "app",
+    "play store",
+    "playstore",
+    "appstore",
   ],
 
   // Personal Info
