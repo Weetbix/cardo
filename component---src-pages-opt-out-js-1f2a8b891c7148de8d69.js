@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{JqYn:function(n,e,o){"use strict";o.r(e);var t=o("q1tI"),i=o.n(t),a=o("HUsl"),c=o("se3C");e.default=function(){return Object(t.useEffect)((function(){a.Cookies.set(c.tracking_cookie_name,!1),window.gaOptout(),window.alert("Cookies have been opted out"),window.location.href="/privacy-policy"})),i.a.createElement("span",null,"Opting out of tracking")}}}]);
+//# sourceMappingURL=component---src-pages-opt-out-js-1f2a8b891c7148de8d69.js.map
