@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import { OutboundLink } from "gatsby-plugin-gtag"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -80,20 +81,26 @@ const IndexPage = ({ data }) => (
           </div>
           <div className="downloadButtonsContainer">
             {configs.playstore_link && (
-              <a className="playStoreLink" href={configs.playstore_link}>
+              <OutboundLink
+                className="playStoreLink"
+                href={configs.playstore_link}
+              >
                 <Img
                   fixed={data.playStore.childImageSharp.fixed}
                   className="playStore"
                 />
-              </a>
+              </OutboundLink>
             )}
             {configs.appstore_link && (
-              <a className="appStoreLink" href={configs.appstore_link}>
+              <OutboundLink
+                className="appStoreLink"
+                href={configs.appstore_link}
+              >
                 <Img
                   fixed={data.appStore.childImageSharp.fixed}
                   className="appStore"
                 />
-              </a>
+              </OutboundLink>
             )}
           </div>
         </div>
@@ -124,51 +131,17 @@ const IndexPage = ({ data }) => (
           <p className="footerText">
             Made by{" "}
             {configs.your_link ? (
-              <a href={configs.your_link}>{configs.your_name}</a>
+              <OutboundLink href={configs.your_link}>
+                {configs.your_name}
+              </OutboundLink>
             ) : (
               `${configs.your_name}`
             )}
             {configs.your_city && ` in ${configs.your_city}`}
           </p>
           <div className="footerIcons">
-            {configs.facebook_username && (
-              <a
-                href={`https://facebook.com/${configs.facebook_username}`}
-                aria-label="Facebook"
-              >
-                <span className="fa-stack fa-1x">
-                  <i className="socialIconBack fas fa-circle fa-stack-2x" />
-                  <i className="socialIconTop fab fa-facebook fa-stack-1x" />
-                </span>
-              </a>
-            )}
-
-            {configs.linkedin_username && (
-              <a
-                href={`https://www.linkedin.com/in/${configs.linkedin_username}`}
-                aria-label="LinkedIn"
-              >
-                <span className="fa-stack fa-1x">
-                  <i className="socialIconBack fas fa-circle fa-stack-2x" />
-                  <i className="socialIconTop fab fa-linkedin fa-stack-1x" />
-                </span>
-              </a>
-            )}
-
-            {configs.twitter_username && (
-              <a
-                href={`https://twitter.com/${configs.twitter_username}`}
-                aria-label="Twitter"
-              >
-                <span className="fa-stack fa-1x">
-                  <i className="socialIconBack fas fa-circle fa-stack-2x" />
-                  <i className="socialIconTop fab fa-twitter fa-stack-1x" />
-                </span>
-              </a>
-            )}
-
             {configs.github_username && (
-              <a
+              <OutboundLink
                 href={`https://github.com/${configs.github_username}`}
                 aria-label="GitHub"
               >
@@ -176,24 +149,27 @@ const IndexPage = ({ data }) => (
                   <i className="socialIconBack fas fa-circle fa-stack-2x" />
                   <i className="socialIconTop fab fa-github fa-stack-1x" />
                 </span>
-              </a>
+              </OutboundLink>
             )}
 
             {configs.email_address && (
-              <a href={`mailto:${configs.email_address}`} aria-label="Email">
+              <OutboundLink
+                href={`mailto:${configs.email_address}`}
+                aria-label="Email"
+              >
                 <span className="fa-stack fa-1x">
                   <i className="socialIconBack fas fa-circle fa-stack-2x" />
                   <i className="socialIconTop fas fa-envelope fa-stack-1x" />
                 </span>
-              </a>
+              </OutboundLink>
             )}
 
-            <a href="/privacy-policy/" aria-label="Privacy Policy">
+            <OutboundLink href="/privacy-policy/" aria-label="Privacy Policy">
               <span className="fa-stack fa-1x">
                 <i className="socialIconBack fas fa-circle fa-stack-2x" />
                 <i className="socialIconTop fas fa-lock fa-stack-1x" />
               </span>
-            </a>
+            </OutboundLink>
           </div>
         </footer>
       </div>
