@@ -8,9 +8,15 @@ import SEO from "../components/seo"
 import lightpagefooter from "../images/lightpagefooter.svg"
 
 const Wrapper = styled.div`
-  background-color: white;
+  img {
+    width: 100vw;
+    background-color: #3f3d56;
+    padding-bottom: 100px;
+    margin-bottom: -20px;
+  }
 `
 const Content = styled.div`
+  background-color: white;
   display: flex;
   align-content: center;
   align-items: center;
@@ -44,12 +50,6 @@ const Content = styled.div`
     color: #6c63ff;
   }
 
-  img {
-    width: 100vw;
-    margin-bottom: -1px;
-    background-color: transparent;
-  }
-
   ul {
     margin-left: 40px;
     margin-bottom: 20px;
@@ -69,10 +69,8 @@ export default function Template({ data }) {
     <Layout>
       <SEO title={frontmatter.title} />
       <Wrapper>
-        <Content>
-          {renderAst(htmlAst)}
-          <img alt="" src={lightpagefooter} />
-        </Content>
+        <Content>{renderAst(htmlAst)}</Content>
+        <img alt="" src={lightpagefooter} />
       </Wrapper>
     </Layout>
   )
