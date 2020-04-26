@@ -69,19 +69,19 @@ module.exports = {
     {
       title: "Message Library",
       description:
-        "Hundreds and hundreds of messages to choose from, so you can find the perfect words for your greeting cards!",
+        "Hundreds of messages to choose from, so you can find the perfect words for your greeting cards!",
       fontawesome_icon_name: "clone",
     },
     {
       title: "Mulitple Categories",
       description:
-        "Over 15 different categories of card message means you wont have to worry about finding the right occation.",
+        "Over 15 different categories for greeting card message means you wont have to worry about finding the right words for the occasion.",
       fontawesome_icon_name: "layer-group",
     },
     {
-      title: "Every Occation",
+      title: "Every Occasion",
       description:
-        "Whether its Christmas, Easter, Valentines Day or a Birthday - Cardo has ideas for your greeting cards!",
+        "Whether it's Christmas, Easter, Mother's Day, Valentines Day or a Birthday - Cardo has ideas for your greeting cards!",
       fontawesome_icon_name: "gift",
     },
     {
@@ -93,7 +93,7 @@ module.exports = {
     {
       title: "Moderation",
       description:
-        "All Cardo's content is moderated and reviewable, dont like a message? flag it and we'll review it!",
+        "All Cardo's content is moderated and reviewable, dont like a message? Flag it and we'll review it!",
       fontawesome_icon_name: "check-circle",
     },
     {
