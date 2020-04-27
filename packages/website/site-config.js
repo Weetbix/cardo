@@ -73,7 +73,7 @@ module.exports = {
       fontawesome_icon_name: "clone",
     },
     {
-      title: "Mulitple Categories",
+      title: "Multiple Categories",
       description:
         "Over 15 different categories for greeting card message means you wont have to worry about finding the right words for the occasion.",
       fontawesome_icon_name: "layer-group",
@@ -81,7 +81,7 @@ module.exports = {
     {
       title: "Every Occasion",
       description:
-        "Whether it's Christmas, Easter, Mother's Day, Valentines Day or a Birthday - Cardo has ideas for your greeting cards!",
+        "Whether it's Christmas, Easter, Mother's Day, Valentine's Day or a Birthday - Cardo has ideas for your greeting cards!",
       fontawesome_icon_name: "gift",
     },
     {
